@@ -122,6 +122,15 @@
   .conn-card .conn-status { position: absolute; top: 14px; right: 14px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; }
   .conn-card .conn-status.live { background: #dcfce7; color: #166534; }
   .conn-card .conn-status.pending { background: #fef3c7; color: #92400e; }
+  .conn-card .conn-status.review { background: #dbeafe; color: #1e40af; }
+  .conn-tier { margin-bottom: 36px; }
+  .conn-tier:last-child { margin-bottom: 0; }
+  .conn-tier-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .conn-tier-head h3 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.015em; }
+  .conn-tier-head .tier-note { font-size: 13.5px; color: var(--ink-muted); flex: 1; }
+  .conn-tier-head .tier-chip { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+  .conn-tier-head .tier-chip.co { background: var(--navy); color: var(--gold); }
+  .conn-tier-head .tier-chip.br { background: var(--gold); color: var(--navy); }
   .conn-card .conn-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--bg); display: grid; place-items: center; margin-bottom: 14px; }
   .conn-card h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; margin: 0 0 6px; letter-spacing: -.01em; }
   .conn-card p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; margin: 0; flex: 1; }
@@ -226,9 +235,9 @@
       <a href="#what-is-claude" class="btn btn-ghost">What is Claude?</a>
     </div>
     <div class="stats">
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">RIPCO plugins</div></div>
-      <div class="stat"><div class="stat-num">27</div><div class="stat-label">Production skills</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Live connectors</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Plugins installed</div></div>
+      <div class="stat"><div class="stat-num">36</div><div class="stat-label">Production skills</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Connectors mapped</div></div>
       <div class="stat"><div class="stat-num">2</div><div class="stat-label">Business lines: ISG + Retail</div></div>
     </div>
   </div>
@@ -276,7 +285,7 @@
         <g>
           <rect x="200" y="30" width="160" height="60" rx="10" fill="url(#grad-gold)" stroke="#b39845" stroke-width="1"/>
           <text x="280" y="55" text-anchor="middle" font-family="Newsreader, serif" font-size="14" font-weight="600" fill="#0a1f44">Skills Library</text>
-          <text x="280" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#0a1f44">27 skills · 3 plugins</text>
+          <text x="280" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#0a1f44">36 skills · 4 plugins</text>
           <path d="M 280,90 L 280,140" stroke="#c8a951" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrow-gold)"/>
         </g>
 
@@ -322,15 +331,19 @@
           <rect x="80" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
           <text x="125" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#0a1f44">Monday.com</text>
 
-          <rect x="180" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
-          <text x="225" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#0a1f44">M365</text>
+          <rect x="180" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="225" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">M365</text>
+          <text x="225" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">under review</text>
 
           <rect x="280" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
           <text x="325" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">HubSpot</text>
           <text x="325" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">pending</text>
 
-          <rect x="380" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
-          <text x="425" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#0a1f44">ZoomInfo</text>
+          <rect x="380" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
+          <text x="415" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">ZoomInfo</text>
+
+          <rect x="460" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
+          <text x="495" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">Apollo</text>
         </g>
         <path d="M 475,320 Q 475,350 425,378" stroke="#c8a951" stroke-width="2" fill="none" marker-end="url(#arrow-gold)"/>
         <path d="M 465,320 Q 400,355 225,378" stroke="#c8a951" stroke-width="1.5" fill="none" opacity=".7"/>
@@ -368,7 +381,7 @@
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Reads leases, spreadsheets, PDFs from your desktop</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Generates DOCX / HTML / PDF deliverables</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Runs the full RIPCO plugin & skill library</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Talks to M365, ZoomInfo, and every connector below</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Talks to Monday and any connector you've authorized</li>
         </ul>
         <div class="monday-highlight">
           <div class="mh-icon">↑</div>
@@ -433,39 +446,73 @@
   <div class="container">
     <div class="section-eyebrow">Organizational connectors</div>
     <h2 class="section-title">The systems Claude talks to on your behalf.</h2>
-    <p class="section-sub">Connectors are the pipes that let Claude read and write your business systems. Each one unlocks a set of skills — install a connector, gain a capability.</p>
+    <p class="section-sub">Connectors are the pipes that let Claude read and write your business systems. Some are provided and maintained by RIPCO. Others are yours to bring — if you have an account, you can connect it.</p>
 
-    <div class="conn-grid">
-      <div class="conn-card">
-        <span class="conn-status live">Live</span>
-        <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-        <h4>Monday.com</h4>
-        <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps.</p>
-        <div class="conn-uses">Used by all 3 RIPCO plugins</div>
+    <!-- Company-provided -->
+    <div class="conn-tier">
+      <div class="conn-tier-head">
+        <h3>Provided by RIPCO</h3>
+        <div class="tier-note">Set up and maintained centrally. Available to you without any action.</div>
+        <span class="tier-chip co">Company</span>
       </div>
+      <div class="conn-grid">
+        <div class="conn-card">
+          <span class="conn-status live">Live</span>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <h4>Monday.com</h4>
+          <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps.</p>
+          <div class="conn-uses">Used by all 4 plugins</div>
+        </div>
 
-      <div class="conn-card">
-        <span class="conn-status live">Live</span>
-        <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
-        <h4>Microsoft 365</h4>
-        <p>Outlook email + calendar search, SharePoint file lookup, and meeting availability. Powers call prep, weekly briefings, and inbox synthesis.</p>
-        <div class="conn-uses">Cross-cutting · calendar + email + files</div>
+        <div class="conn-card">
+          <span class="conn-status review">Under Review</span>
+          <div class="conn-icon" style="opacity:.7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+          <h4>Microsoft 365</h4>
+          <p>Outlook email + calendar, SharePoint file search, and meeting availability. Under review by RIPCO IT — not yet approved for general use.</p>
+          <div class="conn-uses">Would enable: call prep, weekly briefings</div>
+        </div>
+
+        <div class="conn-card">
+          <span class="conn-status pending">Pending</span>
+          <div class="conn-icon" style="opacity:.6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h4>HubSpot</h4>
+          <p>Marketing automation and contact management. Not yet active for RIPCO — awaiting workspace-level integration and skill build-out.</p>
+          <div class="conn-uses">Planned: email nurture, contact sync</div>
+        </div>
       </div>
+    </div>
 
-      <div class="conn-card">
-        <span class="conn-status pending">Pending</span>
-        <div class="conn-icon" style="opacity:.6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h4>HubSpot</h4>
-        <p>Marketing automation and contact management. Not yet active for RIPCO — connector installed, awaiting workspace-level integration and skill build-out.</p>
-        <div class="conn-uses">Planned: email nurture, contact sync</div>
+    <!-- Broker-provided -->
+    <div class="conn-tier">
+      <div class="conn-tier-head">
+        <h3>Bring your own account</h3>
+        <div class="tier-note">These are the broker's responsibility. If you hold a seat, connect it in Claude and the matching skills light up.</div>
+        <span class="tier-chip br">Broker</span>
       </div>
+      <div class="conn-grid">
+        <div class="conn-card">
+          <span class="conn-status live">Available</span>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          <h4>Apollo</h4>
+          <p>Outbound prospecting and sequence engine. Build target lists from an ICP description, enrich contacts, and enroll leads into email sequences.</p>
+          <div class="conn-uses">Requires your own Apollo seat</div>
+        </div>
 
-      <div class="conn-card">
-        <span class="conn-status live">Live</span>
-        <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/><path d="M8 11h6"/></svg></div>
-        <h4>ZoomInfo</h4>
-        <p>Contact and company intel — verified emails, phones, org charts, funding, buying signals. Fuels owner research, tenant prospecting, and lead enrichment.</p>
-        <div class="conn-uses">ISG owner research · Retail tenant prospecting</div>
+        <div class="conn-card">
+          <span class="conn-status live">Available</span>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/><path d="M8 11h6"/></svg></div>
+          <h4>ZoomInfo</h4>
+          <p>Contact and company intel — verified emails, phones, org charts, funding, buying signals. Fuels owner research and tenant prospecting.</p>
+          <div class="conn-uses">Requires your own ZoomInfo seat</div>
+        </div>
+
+        <div class="conn-card">
+          <span class="conn-status live">Available</span>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+          <h4>Meeting notetakers</h4>
+          <p>Granola or Fireflies transcripts feed Claude directly. Pull commitments out of a call and post them to the right deal without re-typing notes.</p>
+          <div class="conn-uses">Requires your own notetaker account</div>
+        </div>
       </div>
     </div>
   </div>
@@ -476,7 +523,7 @@
   <div class="container">
     <div class="section-eyebrow">The library</div>
     <h2 class="section-title">Plugins and skills, split by business line.</h2>
-    <p class="section-sub">RIPCO runs two lines of business — Investment Sales and Retail Leasing. Each has its own plugin with skills grouped by scenario. Apollo is a shared prospecting layer both sides use.</p>
+    <p class="section-sub">RIPCO runs two lines of business — Investment Sales and Retail Leasing. Each has its own plugin with skills grouped by scenario. Monday CRM and Apollo are shared layers both sides use. Click any skill for what it does and when it fires.</p>
 
     <div class="line-tabs" id="line-tabs"></div>
     <div id="catalog-body"></div>
@@ -575,7 +622,7 @@ const PLUGINS = [
     name: 'Retail Leasing Assistant',
     bundle: 'retail-leasing-assistant.plugin.zip',
     tagline: 'Landlord-rep and tenant-rep operations for the Retail Leasing team — from listing to lease.',
-    count: 15,
+    count: 16,
     scenarios: [
       { title: 'Router & reference', blurb: 'The front door for any retail request and the shared data-layer every write reads first.',
         skills: [
@@ -652,13 +699,21 @@ const PLUGINS = [
             donts: 'Not for ISG status reports.',
             board: 'RIPCO Retail Leasing boards' },
         ]},
+      { title: 'Comps intake', blurb: 'Pull executed lease economics out of OMs and rent rolls into the comps database.',
+        skills: [
+          { name: 'OM Extraction', file: 'retail-om-extraction.skill',
+            purpose: 'Extracts lease/tenant data from Offering Memorandums, rent rolls, and broker packages, then writes structured comps to the RIPCO Retail Comps board. Fires even when you only ask to summarize an OM.',
+            triggers: ['"extract this rent roll"', '"add this OM to the comps board"', '"process this OM"', 'any uploaded OM or rent roll'],
+            donts: 'Not for tour books, flyers, or availabilities (asking rents are not comps). Not for Property Shark transfers — use comparable-sales-intake.',
+            board: 'RIPCO Retail Comps (9789156352)' },
+        ]},
       { title: 'Search & availability', blurb: 'The read layer — comps, tenant contacts, and RIPCORE availabilities.',
         skills: [
           { name: 'Retail Comps', file: 'retail-retail-comps.skill',
-            purpose: 'Search and export retail / lease comps across any market. Bundled Manhattan dataset + Monday-based comps for other markets.',
+            purpose: 'Search and export retail / lease comps live from Monday.com. Manhattan queries hit the Manhattan Lease Comps board; every other market hits the all-markets RIPCO Retail Comps board. Read-only.',
             triggers: ['"pull comps"', '"lease comps in [submarket]"', '"[tenant] comps"', '"rents in [area]"'],
-            donts: 'Not for sale comps — those live in Comparable Sales.',
-            board: 'Bundled comps DB + RIPCO Retail Comps board' },
+            donts: 'Read-only — to ADD comps, use om-extraction. Not for sale comps (Comparable Sales).',
+            board: 'Manhattan Lease Comps + RIPCO Retail Comps (live)' },
           { name: 'Tenant List', file: 'retail-tenant-list.skill',
             purpose: 'Query, filter, and export the RIPCO Tenant Contacts DB — tenants and their space requirements. Filter by use group, chain type, price point, SF range, etc.',
             triggers: ['"use the tenant list"', '"pull coffee tenants"', '"national chains under 2,000 SF"'],
@@ -669,6 +724,68 @@ const PLUGINS = [
             triggers: ['"RIPCORE"', '"what\'s available in [submarket]"', '"pull a RIPCORE snapshot"'],
             donts: 'Not for non-NYC markets.',
             board: 'RIPCORE Availabilities (18394826182)' },
+        ]},
+    ]
+  },
+
+  // =========================================================
+  // MONDAY CRM — cross-cutting board operations
+  // =========================================================
+  {
+    id: 'mondaycrm', line: 'cross', letter: 'M',
+    name: 'Monday CRM',
+    bundle: 'monday-crm.plugin.zip',
+    tagline: 'Generic Monday.com board operations — briefings, forecasting, data hygiene, automations, and activity logging. Works on any board, not just RIPCO\'s.',
+    count: 8,
+    scenarios: [
+      { title: 'Daily rhythm', blurb: 'Start your day knowing what needs attention, and log what happened.',
+        skills: [
+          { name: 'Daily Briefing', file: 'mondaycrm-daily-briefing.skill',
+            purpose: 'Prioritized CRM briefing across pipeline, contacts, accounts, and leads. Surfaces what needs attention today from board activity and updates.',
+            triggers: ['"morning briefing"', '"what\'s on my plate today"', '"what needs my attention"', '"pipeline summary"'],
+            donts: 'Not for building new boards — use workspace-builder.',
+            board: 'Any Monday board' },
+          { name: 'Log Activity', file: 'mondaycrm-log-activity.skill',
+            purpose: 'Log calls, meetings, and notes to item timelines as structured records with attendees, outcomes, and follow-ups. Also reads activity history back.',
+            triggers: ['"log my call with [X]"', '"add a note to the deal"', '"what activities happened on [item]"'],
+            donts: 'Not for meeting transcripts — use meeting-to-deal.',
+            board: 'Any Monday board (timeline items)' },
+          { name: 'Meeting to Deal', file: 'mondaycrm-meeting-to-deal.skill',
+            purpose: 'Turns meeting transcripts into deal updates — key points, commitments, and next steps posted to matching deals. Auto-creates contacts for new attendees.',
+            triggers: ['"log my meetings to deals"', '"update CRM from calls"', '"what did I commit to in meetings"'],
+            donts: 'Not for manually dictated notes — use log-activity.',
+            board: 'Any Monday board + notetaker feed' },
+        ]},
+      { title: 'Analysis & forecasting', blurb: 'Turn board data into a forecast dashboard or a health score.',
+        skills: [
+          { name: 'Forecast', file: 'mondaycrm-forecast.skill',
+            purpose: 'Builds a forecast dashboard in Monday — committed, best-case, and pipeline views by close month, rendered as real dashboard widgets.',
+            triggers: ['"build me a forecast"', '"commit vs best-case"', '"how are we tracking to quota"', '"weighted pipeline"'],
+            donts: 'Not for one-off pipeline questions — use daily-briefing.',
+            board: 'Any Monday board (creates dashboard)' },
+          { name: 'Data Cleanup', file: 'mondaycrm-data-cleanup.skill',
+            purpose: 'Scored board health check (missing fields, stalled deals, abandoned columns, automation gaps) as a report — or bulk fixes for phone formats, missing emails, unowned deals, and stale dates.',
+            triggers: ['"clean my CRM"', '"run a board health check"', '"what\'s broken in my CRM"', '"normalize my phone numbers"'],
+            donts: 'Not for creating new boards or columns from scratch.',
+            board: 'Any Monday board' },
+        ]},
+      { title: 'Setup & automation', blurb: 'Build boards from scratch and wire up rules without touching block IDs.',
+        skills: [
+          { name: 'Workspace Builder', file: 'mondaycrm-workspace-builder.skill',
+            purpose: 'Builds a CRM workspace from scratch — describe the business and get boards, columns, groups, and pipeline stages created in Monday.',
+            triggers: ['"set up my CRM"', '"build me a CRM"', '"I need a new sales pipeline"'],
+            donts: 'Not for questions about an existing board — use daily-briefing or data-cleanup.',
+            board: 'Creates new workspaces + boards' },
+          { name: 'Automate CRM', file: 'mondaycrm-automate-crm.skill',
+            purpose: 'Set up, view, and manage Monday automations in plain English — no block IDs required. "When a deal is won, notify me and move it to Closed Won."',
+            triggers: ['"set up an automation"', '"when a deal is won notify me"', '"what automations do I have"'],
+            donts: 'Not for RIPCO-specific write rules — those are baked into the RIPCO plugins.',
+            board: 'Any Monday board (automations)' },
+          { name: 'Run Sequence', file: 'mondaycrm-run-sequence.skill',
+            purpose: 'Manage Monday CRM sequences end-to-end — list, create, enroll contacts, activate/deactivate, duplicate, and track performance analytics.',
+            triggers: ['"what sequences do I have"', '"enroll this contact in a sequence"', '"show me sequence analytics"'],
+            donts: 'Not for Apollo sequences — those use the Apollo plugin.',
+            board: 'Any Monday board (sequences)' },
         ]},
     ]
   },
