@@ -9,20 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0a1f44;
-    --navy-2: #11295a;
-    --navy-3: #1e3a72;
-    --gold: #c8a951;
-    --gold-2: #b39845;
-    --gold-soft: #e8d8a8;
-    --ink: #0f172a;
-    --ink-muted: #475569;
-    --ink-light: #94a3b8;
-    --line: #e2e8f0;
-    --bg: #faf8f3;
-    --bg-card: #ffffff;
-    --green: #16a34a;
-    --red: #dc2626;
+    --navy: #0a1f44; --navy-2: #11295a; --navy-3: #1e3a72;
+    --gold: #c8a951; --gold-2: #b39845; --gold-soft: #e8d8a8;
+    --ink: #0f172a; --ink-muted: #475569; --ink-light: #94a3b8;
+    --line: #e2e8f0; --bg: #faf8f3; --bg-card: #ffffff;
+    --green: #16a34a; --red: #dc2626;
     --shadow: 0 1px 2px rgba(10,31,68,.04), 0 8px 24px rgba(10,31,68,.06);
     --shadow-lg: 0 8px 32px rgba(10,31,68,.12);
   }
@@ -33,7 +24,6 @@
   code { font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 90%; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
   .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
 
-  /* Nav */
   .nav { border-bottom: 1px solid var(--line); background: rgba(250,248,243,.9); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 50; }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
@@ -42,7 +32,6 @@
   .nav-links a { text-decoration: none; }
   .nav-links a:hover { color: var(--ink); }
 
-  /* Hero */
   .hero { padding: 72px 0 48px; }
   .hero-eyebrow { color: var(--ink-muted); font-size: 13px; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; margin-bottom: 20px; }
   .hero h1 { font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: clamp(38px, 5vw, 62px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 20px; max-width: 940px; }
@@ -54,35 +43,24 @@
   .btn-primary:hover { background: var(--navy-2); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
   .btn-ghost:hover { border-color: var(--ink); }
-  .btn-gold { background: var(--gold); color: var(--navy); font-weight: 600; }
-  .btn-gold:hover { background: var(--gold-2); }
 
-  /* Stats */
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 48px; }
   .stat { background: #fff; padding: 22px 24px; }
   .stat-num { font-family: 'Newsreader', serif; font-weight: 600; font-size: 38px; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
   .stat-label { color: var(--ink-muted); font-size: 13px; margin-top: 6px; }
 
-  /* Section */
   .section { padding: 56px 0; }
   .section-eyebrow { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
   .section-title { font-family: 'Newsreader', serif; font-weight: 600; font-size: 36px; letter-spacing: -.02em; margin: 0 0 12px; }
   .section-sub { color: var(--ink-muted); font-size: 16.5px; max-width: 640px; margin: 0 0 36px; line-height: 1.6; }
 
-  /* What is Claude — diagram + copy */
   .claude-explainer { background: linear-gradient(180deg, #fff 0%, #f8f4ea 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .claude-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
   .claude-copy p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin: 0 0 14px; }
   .claude-copy p strong { color: var(--ink); }
-  .callout {
-    background: #fff; border-left: 3px solid var(--gold);
-    padding: 14px 18px; border-radius: 6px; margin: 18px 0 0;
-    font-size: 14.5px; line-height: 1.55; color: var(--ink);
-    box-shadow: var(--shadow);
-  }
+  .callout { background: #fff; border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 6px; margin: 18px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); box-shadow: var(--shadow); }
   .callout strong { color: var(--navy); }
 
-  /* Chat vs Cowork */
   .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
   .cc-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
   .cc-card.chat { border-top: 3px solid var(--ink-light); }
@@ -101,7 +79,6 @@
   .monday-highlight .mh-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--gold); color: var(--navy); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; }
   .monday-highlight small { display: block; opacity: .8; font-size: 12px; margin-top: 2px; }
 
-  /* Monday relationship section */
   .monday-story { background: var(--navy); color: #fff; padding: 64px 0; }
   .monday-story .section-eyebrow { color: var(--gold); }
   .monday-story .section-title { color: #fff; }
@@ -116,13 +93,67 @@
   .ms-board { color: rgba(255,255,255,.75); }
   .ms-board .b-name { display: block; color: #fff; font-weight: 600; }
 
-  /* Connectors */
-  .conn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  /* Setup / connect guide */
+  .setup { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .setup-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: st; }
+  .steps li { display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 0 0 20px; position: relative; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before {
+    counter-increment: st; content: counter(st);
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: grid; place-items: center; font-weight: 700; font-size: 14px;
+    font-family: 'Newsreader', serif;
+  }
+  .steps li::after {
+    content: ''; position: absolute; left: 15.5px; top: 34px; bottom: 6px;
+    width: 1px; background: var(--line);
+  }
+  .steps li:last-child::after { display: none; }
+  .steps .st-body h4 { font-size: 15px; font-weight: 600; margin: 5px 0 5px; letter-spacing: -.01em; }
+  .steps .st-body p { font-size: 13.5px; color: var(--ink-muted); margin: 0; line-height: 1.6; }
+  .steps .st-body p + p { margin-top: 6px; }
+  .ui-path {
+    display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+    padding: 4px 9px; font-size: 12.5px; font-weight: 600; color: var(--navy);
+    margin-top: 7px;
+  }
+  .ui-path .sepr { color: var(--ink-light); font-weight: 400; }
+  .setup-aside { display: flex; flex-direction: column; gap: 14px; }
+  .verify-card { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .verify-head {
+    background: var(--navy); color: #fff; padding: 11px 16px;
+    font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .verify-head .vdot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+  .verify-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
+  .vmsg { font-size: 13px; line-height: 1.5; }
+  .vmsg.you { align-self: flex-end; background: #fff; border: 1px solid var(--line); border-radius: 10px 10px 3px 10px; padding: 8px 12px; max-width: 90%; }
+  .vmsg.cl { align-self: flex-start; background: #fff; border-left: 3px solid var(--gold); border-radius: 3px 10px 10px 10px; padding: 8px 12px; max-width: 92%; box-shadow: var(--shadow); }
+  .vmsg.cl b { color: var(--navy); }
+  .trouble { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 15px 17px; }
+  .trouble h4 { font-size: 13px; font-weight: 700; color: #92400e; margin: 0 0 9px; text-transform: uppercase; letter-spacing: .08em; }
+  .trouble dl { margin: 0; font-size: 13px; }
+  .trouble dt { font-weight: 600; color: #78350f; margin-top: 9px; }
+  .trouble dt:first-child { margin-top: 0; }
+  .trouble dd { margin: 2px 0 0; color: #92400e; line-height: 1.5; }
+  .scope-note { background: var(--navy); color: #fff; border-radius: 10px; padding: 15px 17px; }
+  .scope-note h4 { font-family: 'Newsreader', serif; font-size: 16px; font-weight: 600; color: var(--gold); margin: 0 0 6px; }
+  .scope-note p { font-size: 13px; color: rgba(255,255,255,.82); margin: 0; line-height: 1.6; }
+
+  .conn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .conn-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; min-height: 190px; position: relative; }
   .conn-card .conn-status { position: absolute; top: 14px; right: 14px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; }
   .conn-card .conn-status.live { background: #dcfce7; color: #166534; }
   .conn-card .conn-status.pending { background: #fef3c7; color: #92400e; }
   .conn-card .conn-status.review { background: #dbeafe; color: #1e40af; }
+  .conn-card .conn-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--bg); display: grid; place-items: center; margin-bottom: 14px; }
+  .conn-card h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; margin: 0 0 6px; letter-spacing: -.01em; }
+  .conn-card p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; margin: 0; flex: 1; }
+  .conn-card .conn-uses { margin-top: 12px; font-size: 12px; color: var(--ink-light); font-weight: 500; }
   .conn-tier { margin-bottom: 36px; }
   .conn-tier:last-child { margin-bottom: 0; }
   .conn-tier-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
@@ -131,27 +162,21 @@
   .conn-tier-head .tier-chip { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
   .conn-tier-head .tier-chip.co { background: var(--navy); color: var(--gold); }
   .conn-tier-head .tier-chip.br { background: var(--gold); color: var(--navy); }
-  .conn-card .conn-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--bg); display: grid; place-items: center; margin-bottom: 14px; }
-  .conn-card h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; margin: 0 0 6px; letter-spacing: -.01em; }
-  .conn-card p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; margin: 0; flex: 1; }
-  .conn-card .conn-uses { margin-top: 12px; font-size: 12px; color: var(--ink-light); font-weight: 500; }
 
-  /* Line tabs */
-  .line-tabs { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--line); }
+  .line-tabs { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
   .line-tab { padding: 12px 20px 14px; font-weight: 600; font-size: 15px; color: var(--ink-muted); border-bottom: 2px solid transparent; cursor: pointer; transition: all .15s ease; margin-bottom: -1px; }
   .line-tab:hover { color: var(--ink); }
   .line-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
   .line-tab .cnt { display: inline-block; margin-left: 6px; font-size: 12px; padding: 2px 7px; border-radius: 999px; background: var(--bg); color: var(--ink-muted); font-weight: 600; }
   .line-tab.active .cnt { background: var(--navy); color: var(--gold); }
 
-  /* Plugin card */
   .plugin { background: #fff; border: 1px solid var(--line); border-radius: 16px; margin-bottom: 28px; overflow: hidden; }
   .plugin-head { padding: 26px 28px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #fff 0%, #faf8f3 100%); }
   .plugin-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: 'Newsreader', serif; font-weight: 700; font-size: 22px; flex-shrink: 0; }
   .plugin-info { flex: 1; min-width: 220px; }
   .plugin-info h3 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 26px; margin: 0 0 4px; letter-spacing: -.015em; }
   .plugin-info p { margin: 0; color: var(--ink-muted); font-size: 14px; line-height: 1.5; }
-  .plugin-meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-light); margin-top: 8px; }
+  .plugin-meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-light); margin-top: 8px; flex-wrap: wrap; }
   .plugin-meta span { background: var(--bg); padding: 3px 8px; border-radius: 4px; font-weight: 600; color: var(--ink-muted); }
   .plugin-install { display: flex; gap: 8px; align-items: center; }
   .plugin-badge { background: var(--bg); color: var(--navy); font-size: 12px; font-weight: 600; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--line); white-space: nowrap; }
@@ -162,23 +187,24 @@
   .scenario-head h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; margin: 0; letter-spacing: -.01em; color: var(--navy); }
   .scenario-head .s-blurb { font-size: 13px; color: var(--ink-muted); flex: 1; margin-left: 8px; }
   .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
-  .skill-item {
-    background: var(--bg); border: 1px solid transparent; border-radius: 8px;
-    padding: 12px 14px; cursor: pointer; display: flex; align-items: center; gap: 10px;
-    transition: all .15s ease;
-  }
+  .skill-item { background: var(--bg); border: 1px solid transparent; border-radius: 8px; padding: 12px 14px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all .15s ease; }
   .skill-item:hover { background: #fff; border-color: var(--navy); box-shadow: var(--shadow); }
   .skill-item .s-name { font-weight: 600; font-size: 13.5px; flex: 1; letter-spacing: -.01em; }
   .skill-item .s-arrow { color: var(--ink-light); font-size: 14px; }
 
-  /* Modal */
+  /* flow grid for marketing intake */
+  .flow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+  .flow-chip { background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 9px 12px; font-size: 12.5px; display: flex; align-items: center; gap: 8px; }
+  .flow-chip .fdot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .flow-chip .fname { font-weight: 600; }
+  .flow-chip .fmeta { margin-left: auto; font-size: 10.5px; color: var(--ink-light); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+
   .modal-backdrop { position: fixed; inset: 0; background: rgba(10,31,68,.4); backdrop-filter: blur(4px); z-index: 100; display: none; align-items: flex-start; justify-content: center; padding: 64px 24px; overflow-y: auto; }
   .modal-backdrop.open { display: flex; }
   .modal { background: #fff; border-radius: 16px; max-width: 720px; width: 100%; box-shadow: var(--shadow-lg); overflow: hidden; }
   .modal-head { padding: 26px 30px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
   .modal-head h2 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 26px; letter-spacing: -.015em; margin: 4px 0 4px; }
   .modal-head .m-plugin { font-size: 11.5px; color: var(--navy); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-  .modal-head .m-file { font-size: 12px; color: var(--ink-muted); font-family: ui-monospace, SF Mono, Menlo, monospace; margin-top: 4px; }
   .close-btn { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; width: 32px; height: 32px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
   .close-btn:hover { background: var(--line); }
   .modal-body { padding: 22px 30px 30px; }
@@ -197,7 +223,8 @@
 
   @media (max-width: 980px) {
     .claude-grid { grid-template-columns: 1fr; gap: 40px; }
-    .cc-grid, .monday-story-grid { grid-template-columns: 1fr; }
+    .cc-grid, .monday-story-grid, .setup-grid { grid-template-columns: 1fr; }
+    .setup-grid { gap: 32px; }
     .ms-boards-grid { grid-template-columns: repeat(2, 1fr); }
     .conn-grid { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -213,31 +240,30 @@
 
 <nav class="nav">
   <div class="container nav-inner">
-    <div class="brand">
-      <div class="brand-mark">R</div>
-      <span>RIPCO AI Library</span>
-    </div>
+    <div class="brand"><div class="brand-mark">R</div><span>RIPCO AI Library</span></div>
     <div class="nav-links">
       <a href="#what-is-claude">Claude at RIPCO</a>
+      <a href="#connect-monday">Connect Monday</a>
       <a href="#connectors">Connectors</a>
-      <a href="#catalog">Skills & Plugins</a>
+      <a href="#catalog">Skills &amp; Plugins</a>
     </div>
   </div>
 </nav>
 
 <section class="hero">
   <div class="container">
-    <div class="hero-eyebrow">RIPCO's AI Handbook · Claude, Plugins & Skills</div>
+    <div class="hero-eyebrow">RIPCO's AI Handbook · Claude, Plugins &amp; Skills</div>
     <h1>Claude is the <em>digital assistant</em> and workflow layer for RIPCO brokers.</h1>
-    <p>This library explains what Claude is, how it connects to Monday.com and our other tools, and every plugin and skill we've built to run the day-to-day of Investment Sales and Retail Leasing.</p>
+    <p>This library explains what Claude is, how it connects to Monday.com and our proprietary data, and every plugin and skill we've built to run the day-to-day of Investment Sales and Retail Leasing.</p>
     <div class="hero-actions">
-      <a href="#catalog" class="btn btn-primary">Explore plugins & skills →</a>
+      <a href="#connect-monday" class="btn btn-primary">Connect Monday.com first →</a>
+      <a href="#catalog" class="btn btn-ghost">Explore plugins &amp; skills</a>
       <a href="#what-is-claude" class="btn btn-ghost">What is Claude?</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="stat-num">4</div><div class="stat-label">Plugins installed</div></div>
-      <div class="stat"><div class="stat-num">36</div><div class="stat-label">Production skills</div></div>
-      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Connectors mapped</div></div>
+      <div class="stat"><div class="stat-num">27</div><div class="stat-label">Production skills</div></div>
+      <div class="stat"><div class="stat-num">16</div><div class="stat-label">Marketing intake flows</div></div>
       <div class="stat"><div class="stat-num">2</div><div class="stat-label">Business lines: ISG + Retail</div></div>
     </div>
   </div>
@@ -257,39 +283,24 @@
         </div>
       </div>
 
-      <!-- Architecture diagram -->
       <svg viewBox="0 0 560 440" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-height: 440px;" aria-label="Claude architecture at RIPCO">
         <defs>
-          <linearGradient id="grad-navy" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#11295a"/><stop offset="1" stop-color="#0a1f44"/>
-          </linearGradient>
-          <linearGradient id="grad-gold" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e8d8a8"/><stop offset="1" stop-color="#c8a951"/>
-          </linearGradient>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#0a1f44"/>
-          </marker>
-          <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#c8a951"/>
-          </marker>
+          <linearGradient id="grad-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#11295a"/><stop offset="1" stop-color="#0a1f44"/></linearGradient>
+          <linearGradient id="grad-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8d8a8"/><stop offset="1" stop-color="#c8a951"/></linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a1f44"/></marker>
+          <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c8a951"/></marker>
         </defs>
-
-        <!-- YOU -->
         <g>
           <rect x="20" y="180" width="90" height="60" rx="10" fill="#fff" stroke="#0a1f44" stroke-width="1.5"/>
           <text x="65" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0a1f44">YOU</text>
           <text x="65" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569">Broker</text>
         </g>
-
-        <!-- Skills Library above Claude -->
         <g>
           <rect x="200" y="30" width="160" height="60" rx="10" fill="url(#grad-gold)" stroke="#b39845" stroke-width="1"/>
           <text x="280" y="55" text-anchor="middle" font-family="Newsreader, serif" font-size="14" font-weight="600" fill="#0a1f44">Skills Library</text>
-          <text x="280" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#0a1f44">36 skills · 4 plugins</text>
+          <text x="280" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#0a1f44">27 skills · 4 plugins</text>
           <path d="M 280,90 L 280,140" stroke="#c8a951" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrow-gold)"/>
         </g>
-
-        <!-- CLAUDE center -->
         <g>
           <rect x="180" y="150" width="200" height="120" rx="14" fill="url(#grad-navy)" stroke="#0a1f44" stroke-width="1"/>
           <text x="280" y="185" text-anchor="middle" font-family="Newsreader, serif" font-size="22" font-weight="600" fill="#e8d8a8">Claude</text>
@@ -298,12 +309,8 @@
           <text x="280" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">SEEM · Search Extract</text>
           <text x="280" y="255" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">Explain Model</text>
         </g>
-
-        <!-- Arrow YOU → CLAUDE -->
         <path d="M 110,210 L 175,210" stroke="#0a1f44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
         <text x="142" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569" font-style="italic">prompt</text>
-
-        <!-- CHAT branch (right top) -->
         <g>
           <rect x="410" y="130" width="130" height="80" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
           <text x="475" y="152" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="600" fill="#0f172a">Chat</text>
@@ -312,8 +319,6 @@
           <text x="475" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#94a3b8">No file writes</text>
         </g>
         <path d="M 380,180 L 405,165" stroke="#0a1f44" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
-
-        <!-- COWORK branch (right bottom) -->
         <g>
           <rect x="410" y="230" width="130" height="90" rx="10" fill="#c8a951" stroke="#b39845" stroke-width="2"/>
           <text x="475" y="253" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="600" fill="#0a1f44">Cowork</text>
@@ -323,25 +328,18 @@
           <text x="475" y="309" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#c8a951">↑ FILES → MONDAY</text>
         </g>
         <path d="M 380,240 L 405,265" stroke="#c8a951" stroke-width="2" fill="none" marker-end="url(#arrow-gold)"/>
-
-        <!-- Systems / Connectors row -->
         <g>
           <text x="280" y="360" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#475569" letter-spacing="1">MCP CONNECTORS</text>
-
           <rect x="80" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
           <text x="125" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#0a1f44">Monday.com</text>
-
           <rect x="180" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
           <text x="225" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">M365</text>
           <text x="225" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">under review</text>
-
           <rect x="280" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
           <text x="325" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">HubSpot</text>
           <text x="325" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">pending</text>
-
           <rect x="380" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
           <text x="415" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">ZoomInfo</text>
-
           <rect x="460" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
           <text x="495" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">Apollo</text>
         </g>
@@ -351,13 +349,9 @@
       </svg>
     </div>
 
-    <!-- Chat vs Cowork side-by-side -->
     <div class="cc-grid">
       <div class="cc-card chat">
-        <div class="cc-head">
-          <h3>Chat</h3>
-          <span class="cc-badge chat-b">Read-only</span>
-        </div>
+        <div class="cc-head"><h3>Chat</h3><span class="cc-badge chat-b">Read-only</span></div>
         <p style="color:var(--ink-muted); font-size: 14px; margin: 0 0 14px; line-height: 1.55;">The classic Claude conversation. Great for questions, drafting, thinking through problems, and one-off research.</p>
         <ul class="cc-list">
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Ask questions, get answers</li>
@@ -368,19 +362,15 @@
           <li class="no"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>No skills, no plugins</li>
         </ul>
       </div>
-
       <div class="cc-card cowork">
-        <div class="cc-head">
-          <h3>Cowork</h3>
-          <span class="cc-badge cowork-b">Full agent</span>
-        </div>
+        <div class="cc-head"><h3>Cowork</h3><span class="cc-badge cowork-b">Full agent</span></div>
         <p style="color:var(--ink-muted); font-size: 14px; margin: 0 0 14px; line-height: 1.55;">Claude with hands. Point it at a folder and it works alongside you — reading files, running scripts, calling Monday, generating branded docs.</p>
         <ul class="cc-list">
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Everything Chat does, plus:</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg><strong>Uploads files directly into Monday.com boards</strong></li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Reads leases, spreadsheets, PDFs from your desktop</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Generates DOCX / HTML / PDF deliverables</li>
-          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Runs the full RIPCO plugin & skill library</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Runs the full RIPCO plugin &amp; skill library</li>
           <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Talks to Monday and any connector you've authorized</li>
         </ul>
         <div class="monday-highlight">
@@ -409,11 +399,11 @@
       </div>
       <div class="ms-card">
         <h4>Claude writes to Monday with rules</h4>
-        <p>Each skill enforces RIPCO's write conventions — parent items vs subitems, signage dual-writes, contact-relation preservation, and duplicate detection scoped to the right board.</p>
+        <p>Each skill enforces RIPCO's write conventions — parent items vs subitems, signage and e-blast dual-writes, contact-relation preservation, and confirm-before-write on every submission.</p>
       </div>
       <div class="ms-card">
         <h4>Claude generates from Monday</h4>
-        <p>Status reports, tour books, BOV decks, and streetscapes pull live data from Monday. Update the board, regenerate the deliverable — no more stale exports.</p>
+        <p>Status reports, tour surveys, BOV decks, and availability snapshots pull live data from Monday. Update the board, regenerate the deliverable — no more stale exports.</p>
       </div>
     </div>
 
@@ -432,10 +422,89 @@
         <div class="ms-board"><span class="b-name">Site Tracker</span>18408188573</div>
         <div class="ms-board"><span class="b-name">Marketing &amp; GIS</span>18389640392</div>
         <div class="ms-board"><span class="b-name">Signage Board</span>18389640842</div>
+        <div class="ms-board"><span class="b-name">Retail Comps</span>9789156352</div>
         <div class="ms-board"><span class="b-name">Properties DB</span>18026996281</div>
         <div class="ms-board"><span class="b-name">Contacts</span>9486418364</div>
         <div class="ms-board"><span class="b-name">RIPCORE Avails</span>18394826182</div>
-        <div class="ms-board"><span class="b-name">My Lists</span>9871281018</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP: CONNECT MONDAY -->
+<section class="setup" id="connect-monday">
+  <div class="container section">
+    <div class="section-eyebrow">Start here · Required setup</div>
+    <h2 class="section-title">Connect Monday.com to Claude.</h2>
+    <p class="section-sub">Nothing in this library works until Claude can reach your Monday account. This is a one-time, two-minute setup you do yourself — and it's the single most important step.</p>
+
+    <div class="setup-grid">
+      <div>
+        <ol class="steps">
+          <li>
+            <div class="st-body">
+              <h4>Open the connector directory</h4>
+              <p>In the Claude desktop app or on claude.ai, go to Settings and find the Connectors page. This is where every external system Claude can reach gets authorized.</p>
+              <div class="ui-path">Settings <span class="sepr">›</span> Connectors <span class="sepr">›</span> Browse connectors</div>
+            </div>
+          </li>
+          <li>
+            <div class="st-body">
+              <h4>Find monday.com and click Connect</h4>
+              <p>Search the directory for <code>monday</code>. You're looking for the official <strong>monday.com</strong> connector — it appears with the monday logo. Click <strong>Connect</strong>.</p>
+              <p>If you don't see it in the directory, ask Claude: <em>"search the connector registry for monday"</em> and it will surface the install option for you.</p>
+            </div>
+          </li>
+          <li>
+            <div class="st-body">
+              <h4>Sign in with your RIPCO monday account</h4>
+              <p>A monday.com login window opens. Use your <strong>RIPCO email</strong> — the same account you use for the boards every day. Do not use a personal monday account; the boards won't be there.</p>
+              <p>Monday will show you which permissions Claude is requesting. Review and approve.</p>
+            </div>
+          </li>
+          <li>
+            <div class="st-body">
+              <h4>Confirm it's live</h4>
+              <p>Back in Claude, the monday.com connector should show as <strong>Connected</strong>. Open a Cowork session and ask it something simple that requires a board read — if it answers with your real data, you're done.</p>
+            </div>
+          </li>
+          <li>
+            <div class="st-body">
+              <h4>Use Cowork, not Chat, for board work</h4>
+              <p>Chat can read some connector data, but only <strong>Cowork</strong> can write to Monday, upload files, and run the RIPCO plugins. If a skill isn't firing, check you're in Cowork first.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="setup-aside">
+        <div class="verify-card">
+          <div class="verify-head"><span class="vdot"></span>The 10-second verification</div>
+          <div class="verify-body">
+            <div class="vmsg you">What boards do I have access to in monday?</div>
+            <div class="vmsg cl">You're connected as <b>adrian@ripcore.com</b>. I can see the ISG and Retail CRM workspaces — <b>ISG Listings</b>, <b>Agency Listings</b>, <b>Marketing &amp; GIS Projects</b>, <b>RIPCORE Availabilities</b>, and 12 others.</div>
+            <div class="vmsg you">Perfect — pull the leads on 220 Fifth Ave.</div>
+          </div>
+        </div>
+
+        <div class="scope-note">
+          <h4>What Claude can and can't see</h4>
+          <p>Claude inherits <strong>your</strong> monday permissions — nothing more. If you can't open a board, neither can Claude. Every write is confirmed with you before it happens, and nothing is written on your behalf without a yes.</p>
+        </div>
+
+        <div class="trouble">
+          <h4>If something isn't working</h4>
+          <dl>
+            <dt>Skills aren't firing</dt>
+            <dd>You're probably in Chat. Switch to Cowork — plugins and board writes only run there.</dd>
+            <dt>"I can't find that board"</dt>
+            <dd>Either you signed in with a personal monday account, or you don't have access to that board. Check the account email in Settings › Connectors.</dd>
+            <dt>Connector shows Disconnected</dt>
+            <dd>Tokens expire. Click Reconnect and sign in again — your data is untouched.</dd>
+            <dt>Still stuck</dt>
+            <dd>Bring it to office hours. Nine times out of ten it's the wrong account or the wrong mode.</dd>
+          </dl>
+        </div>
       </div>
     </div>
   </div>
@@ -448,7 +517,6 @@
     <h2 class="section-title">The systems Claude talks to on your behalf.</h2>
     <p class="section-sub">Connectors are the pipes that let Claude read and write your business systems. Some are provided and maintained by RIPCO. Others are yours to bring — if you have an account, you can connect it.</p>
 
-    <!-- Company-provided -->
     <div class="conn-tier">
       <div class="conn-tier-head">
         <h3>Provided by RIPCO</h3>
@@ -460,10 +528,9 @@
           <span class="conn-status live">Live</span>
           <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
           <h4>Monday.com</h4>
-          <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps.</p>
-          <div class="conn-uses">Used by all 4 plugins</div>
+          <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps. <a href="#connect-monday" style="color:var(--navy); font-weight:600; text-decoration:underline;">You connect this one yourself →</a></p>
+          <div class="conn-uses">Used by all 4 plugins · required setup</div>
         </div>
-
         <div class="conn-card">
           <span class="conn-status review">Under Review</span>
           <div class="conn-icon" style="opacity:.7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
@@ -471,7 +538,6 @@
           <p>Outlook email + calendar, SharePoint file search, and meeting availability. Under review by RIPCO IT — not yet approved for general use.</p>
           <div class="conn-uses">Would enable: call prep, weekly briefings</div>
         </div>
-
         <div class="conn-card">
           <span class="conn-status pending">Pending</span>
           <div class="conn-icon" style="opacity:.6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
@@ -482,7 +548,6 @@
       </div>
     </div>
 
-    <!-- Broker-provided -->
     <div class="conn-tier">
       <div class="conn-tier-head">
         <h3>Bring your own account</h3>
@@ -497,7 +562,6 @@
           <p>Outbound prospecting and sequence engine. Build target lists from an ICP description, enrich contacts, and enroll leads into email sequences.</p>
           <div class="conn-uses">Requires your own Apollo seat</div>
         </div>
-
         <div class="conn-card">
           <span class="conn-status live">Available</span>
           <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/><path d="M8 11h6"/></svg></div>
@@ -505,7 +569,6 @@
           <p>Contact and company intel — verified emails, phones, org charts, funding, buying signals. Fuels owner research and tenant prospecting.</p>
           <div class="conn-uses">Requires your own ZoomInfo seat</div>
         </div>
-
         <div class="conn-card">
           <span class="conn-status live">Available</span>
           <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
@@ -523,7 +586,7 @@
   <div class="container">
     <div class="section-eyebrow">The library</div>
     <h2 class="section-title">Plugins and skills, split by business line.</h2>
-    <p class="section-sub">RIPCO runs two lines of business — Investment Sales and Retail Leasing. Each has its own plugin with skills grouped by scenario. Monday CRM and Apollo are shared layers both sides use. Click any skill for what it does and when it fires.</p>
+    <p class="section-sub">RIPCO runs two lines of business — Investment Sales and Retail Leasing. Each has its own plugin with skills grouped by scenario. Marketing Intake and Apollo are shared layers both sides use. Click any skill for what it does and when it fires.</p>
 
     <div class="line-tabs" id="line-tabs"></div>
     <div id="catalog-body"></div>
@@ -541,285 +604,238 @@
 
 <script>
 const PLUGINS = [
-  // =========================================================
-  // ISG AI ASSISTANT
-  // =========================================================
+  // ═══════════════ ISG AI ASSISTANT (8) ═══════════════
   {
     id: 'isg', line: 'isg', letter: 'I',
     name: 'ISG AI Assistant',
-    bundle: 'isg-ai-assistant.plugin.zip',
-    tagline: 'The Investment Sales Group\'s end-to-end deal, marketing, and valuation assistant.',
-    count: 9,
+    tagline: 'The Investment Sales Group\'s end-to-end deal, valuation, and reporting assistant.',
+    count: 8,
     scenarios: [
       { title: 'Router & persona', blurb: 'The front door for any ISG request — sets voice, applies board mappings, and delegates.',
         skills: [
-          { name: 'ISG Assistant (Router)', file: 'isg-plugin-isg-assistant.skill',
-            purpose: 'Front door for the ISG assistant. Applies board mappings, scoped deal-fetch filters, routing rules, and terminology before delegating to a workflow skill.',
-            triggers: ['any ISG deal/pipeline/marketing question', '"how do I do X in ISG"'],
+          { name: 'ISG Assistant (Router)',
+            purpose: 'Front door for the ISG assistant. Applies board mappings, scoped deal-fetch filters, routing rules, and terminology before delegating to a workflow skill. Also answers general "how do I / what\'s the process for" questions within Investment Sales.',
+            triggers: ['any ISG deal, pitch, listing, or pipeline request', '"how do I do X in ISG"', '"what\'s the process for…"'],
             donts: 'Not for Retail Leasing requests — those route through the retail-assistant-router.',
             board: 'All ISG boards' },
         ]},
       { title: 'CRM — deals, leads, contact lists', blurb: 'Add new deals, log leads, and manage contact connections on ISG boards.',
         skills: [
-          { name: 'ISG Intake', file: 'isg-plugin-isg-intake.skill',
-            purpose: 'Guided chat intake — add pitches (Pitch Tracker) or listings (ISG Listings). Resolves linked Property + Owner records.',
-            triggers: ['"add a pitch"', '"new pitch for [address]"', '"I signed an EA for [address]"'],
-            donts: 'Not for marketing requests, status reports, or lead management.',
+          { name: 'ISG Intake',
+            purpose: 'Guided chat intake — add pitches to the Pitch Tracker (pre-listing opportunities, BOVs, deals on radar) or listings to ISG Listings (EA signed or in progress). Resolves or creates linked Property Records and Owner/Contact records, then writes all records and connections.',
+            triggers: ['"add a pitch"', '"new pitch for [address]"', '"I signed an EA for [address]"', '"add [address] to the listings board"'],
+            donts: 'Not for marketing requests (those go to Marketing Intake), status reports, or lead management.',
             board: 'ISG Pitch Tracker (9262635627) / ISG Listings (9262635626)' },
-          { name: 'ISG Leads Intake', file: 'isg-plugin-isg-leads-intake.skill',
-            purpose: 'Add one or bulk leads to the ISG Leads Tracker. Every lead is required to be connected to an ISG listing before writing.',
-            triggers: ['"add a lead to [listing]"', '"log a lead"', '"upload these leads"'],
-            donts: 'Not for adding pitches or listings — use isg-intake.',
+          { name: 'ISG Leads Intake',
+            purpose: 'Add one lead from chat or bulk leads from Excel/CSV to the ISG Leads Tracker. Every lead must be connected to an ISG listing — the skill resolves the listing before writing anything. Duplicates auto-skipped, scoped per listing.',
+            triggers: ['"add a lead to [listing]"', '"add this buyer to [address]"', '"upload these leads"', '"add interested party"'],
+            donts: 'Not for adding pitches or listings — use isg-intake. Not for status updates on existing leads.',
             board: 'ISG Leads Tracker (9263596898)' },
-          { name: 'My Lists — Contacts', file: 'isg-plugin-my-lists-contacts.skill',
-            purpose: 'Safely link or unlink contacts on My Lists items. Always reads existing connections first — never blindly replaces.',
-            triggers: ['"add contacts to my list"', '"link [name] to [list]"', '"who\'s on [list]"'],
-            donts: 'Not for non-My-Lists boards.',
+          { name: 'My Lists — Contacts',
+            purpose: 'Safely link or unlink contacts on any My Lists board item. Always reads existing connections before writing — never blindly replaces the contact set.',
+            triggers: ['"add contacts to my list"', '"link [name] to [list]"', '"remove [name] from [list]"', '"who\'s on [list]"'],
+            donts: 'Not for non-My-Lists boards or non-contact-relation operations.',
             board: 'My Lists (9871281018)' },
         ]},
-      { title: 'Marketing & valuation deliverables', blurb: 'OMs, BOVs, and pixel-perfect valuation decks.',
+      { title: 'Valuation deliverables', blurb: 'Turn a valuation workbook into a client-ready deck.',
         skills: [
-          { name: 'ISG Marketing (OM / BOV)', file: 'isg-plugin-isg-marketing.skill',
-            purpose: 'Submits Setup & OM (Offering Memorandum) or BOV requests on the Marketing & GIS Projects board for ISG properties.',
-            triggers: ['"set up an OM for [address]"', '"BOV for [address]"', '"offering memorandum"'],
-            donts: 'Not for Retail Leasing marketing packages or pitchbooks.',
-            board: 'Marketing & GIS Projects (18389640392)' },
-          { name: 'BOV Renderer', file: 'isg-plugin-bov-renderer.skill',
-            purpose: 'Renders a RIPCO BOV valuation workbook (.xlsm/.xlsx) into a pixel-perfect self-contained HTML deck — navy/gold RIPCO brand, print-to-PDF ready.',
-            triggers: ['"render this BOV"', '"make the BOV deck"', '"turn this valuation model into a presentation"'],
-            donts: 'Not for marketing flyers, OMs, ISG status reports, or lease comps.',
-            board: 'N/A (document generator from Excel model)' },
+          { name: 'BOV Renderer',
+            purpose: 'Renders a RIPCO Broker Opinion of Value workbook (.xlsm/.xlsx) into a pixel-perfect, self-contained HTML deck — navy/gold RIPCO brand, print-to-PDF ready. Handles development, investment, commercial, and condo valuation models; renders one per run.',
+            triggers: ['"render this BOV"', '"make the BOV deck"', '"turn this valuation model into a presentation"', '"create the BOV for [address]"'],
+            donts: 'Not for marketing flyers, OMs, ISG status reports, lease comps, or Monday data entry.',
+            board: 'N/A (generates from an Excel model)' },
         ]},
       { title: 'Reporting', blurb: 'Branded status reports pulled from live board data.',
         skills: [
-          { name: 'ISG Status Report', file: 'isg-plugin-isg-status-report.skill',
-            purpose: 'Generates a branded ISG Listing Progress Report .docx — pulls live data from the ISG Leads Tracker board with mirrored listing metadata.',
-            triggers: ['"generate a status report for [address]"', '"ISG progress report"', '"seller rep report"'],
+          { name: 'ISG Status Report',
+            purpose: 'Generates a branded ISG Listing Progress Report .docx for any property on the ISG Listings board. Pulls live data from the ISG Leads Tracker with mirrored listing metadata, formatted with the RIPCO ISG navy/gold template.',
+            triggers: ['"generate a status report for [address]"', '"ISG progress report"', '"run the ISG report"', '"seller rep report"'],
             donts: 'Not for Retail Leasing status reports — use retail-status-report.',
             board: 'ISG Leads Tracker (9263596898)' },
         ]},
       { title: 'Data & contracts', blurb: 'Weekly comp intake and ELA redlining against the RIPCO standard.',
         skills: [
-          { name: 'Comparable Sales Intake', file: 'isg-plugin-comparable-sales-intake.skill',
-            purpose: 'Ingest weekly Property Shark NYC transfers, enrich arms-length sales via LoopNet / PincusCo / Traded / ACRIS, upload to the Comparable Sales board.',
-            triggers: ['"process the Property Shark export"', '"run the comp intake"', '"new comps for the board"'],
-            donts: 'Not for ISG status reports or marketing intake.',
+          { name: 'Comparable Sales Intake',
+            purpose: 'Ingests the weekly Property Shark NYC transfers export, enriches qualifying arms-length sales with web research from LoopNet, PincusCo, Traded.co, and ACRIS, then uploads to the Comparable Sales board after your review.',
+            triggers: ['"process the Property Shark export"', '"run the comp intake"', '"upload this week\'s transfers"', 'any Sales-New-York-City-*.csv file'],
+            donts: 'Not for ISG status reports, marketing intake, or ELA review.',
             board: 'Comparable Sales (9263594176)' },
-          { name: 'ELA Review', file: 'isg-plugin-ela-review.skill',
-            purpose: 'Reviews Exclusive Listing Agreements against the RIPCO standard. Classifies deviations RED / YELLOW / GREEN and renders an inline widget report.',
-            triggers: ['"review this ELA"', '"redline this exclusive agreement"', '"compare to our template"'],
-            donts: 'Not for non-ELA contracts.',
-            board: 'N/A (analysis + widget)' },
+          { name: 'ELA Review',
+            purpose: 'Reviews Exclusive Listing Agreements (sale and lease) against RIPCO standard templates. Classifies deviations RED / YELLOW / GREEN and renders an inline review report. Also drafts responses to opposing counsel or revised contract language.',
+            triggers: ['"review this ELA"', '"redline this"', '"compare this ELA to our template"', '"what changed in this agreement"'],
+            donts: 'ISG / Investment Sales division only — Retail Leasing agreements route to the retail plugin\'s exclusive-agreement.',
+            board: 'N/A (analysis + inline report)' },
         ]},
     ]
   },
 
-  // =========================================================
-  // RETAIL LEASING ASSISTANT
-  // =========================================================
+  // ═══════════════ RETAIL LEASING ASSISTANT (15) ═══════════════
   {
     id: 'retail', line: 'retail', letter: 'R',
     name: 'Retail Leasing Assistant',
-    bundle: 'retail-leasing-assistant.plugin.zip',
     tagline: 'Landlord-rep and tenant-rep operations for the Retail Leasing team — from listing to lease.',
-    count: 16,
+    count: 15,
     scenarios: [
-      { title: 'Router & reference', blurb: 'The front door for any retail request and the shared data-layer every write reads first.',
+      { title: 'Router & reference', blurb: 'The front door for any retail request, plus the shared data layer every write reads first.',
         skills: [
-          { name: 'Retail Assistant Router', file: 'retail-retail-assistant-router.skill',
-            purpose: 'Front door for the Retail Leasing Assistant. Sets voice, routes to the correct flow skill, and refuses non-RIPCO / ISG requests.',
-            triggers: ['any retail-leasing question', '"add a lead"', '"new listing"', '"pull comps"', '"RIPCORE avails"'],
-            donts: 'Not for ISG, D&SF, or generic coding.',
+          { name: 'Retail Assistant Router',
+            purpose: 'Front door and persona for the Retail Leasing Assistant. Sets the assistant\'s voice and routes to the correct flow skill — leads, listings, spaces, tenants, requirements, lease analysis, agreements, tour surveys, comps, RIPCORE, or marketing.',
+            triggers: ['any landlord-rep or tenant-rep retail request', '"add a lead"', '"new listing"', '"pull comps"', '"RIPCORE avails"'],
+            donts: 'Not for non-RIPCO work, generic coding, or ISG / D&SF deals — those have their own plugins.',
             board: 'All retail boards' },
-          { name: 'Retail CRM Reference', file: 'retail-retail-crm-reference.skill',
-            purpose: 'Canonical data-layer reference — board IDs, column IDs, label indexes, write gotchas for the "xx. Retail CRM" workspace. Every retail skill reads this first.',
+          { name: 'Retail CRM Reference',
+            purpose: 'Canonical data-layer reference for the "xx. Retail CRM" Monday workspace (11490289) — board IDs, column IDs, status/dropdown label indexes, and write gotchas. Every other retail skill reads this before any API call.',
             triggers: ['internally consumed by all other retail skills'],
-            donts: 'Not user-facing — reference-only.',
+            donts: 'Not user-facing — reference-only, consumed by other skills.',
             board: 'Retail CRM workspace (11490289)' },
         ]},
       { title: 'CRM — listings, tenants, leads, sites', blurb: 'The write layer for landlord-rep and tenant-rep records.',
         skills: [
-          { name: 'Add Listing', file: 'retail-add-listing.skill',
-            purpose: 'Creates a new agency listing on Agency Listings. Resolves/creates property + owner contact, optionally creates linked available spaces.',
-            triggers: ['"add a listing"', '"I signed an exclusive on [address]"', '"list [property]"'],
-            donts: 'Not for leads, tenants, tenant requirements, or site pursuits.',
+          { name: 'Add Listing',
+            purpose: 'Creates a new agency listing on Agency Listings, resolving or creating the property on the Properties Database and the client/owner contact on Contacts. Optionally creates linked available spaces on Agency Spaces.',
+            triggers: ['"add a listing"', '"I signed an exclusive on [address]"', '"set up the listing and spaces for [address]"'],
+            donts: 'Not for interested-party leads, tenant assignments, tenant requirements, site pursuits, or marketing requests.',
             board: 'Agency Listings (18408119105)' },
-          { name: 'Add Leads', file: 'retail-add-leads.skill',
-            purpose: 'Adds interested-party leads to the Agency Pipeline board. Handles single leads in chat OR bulk CSV/XLSX. Each lead connected to a listing and/or space.',
-            triggers: ['"add a lead"', '"new lead for [listing]"', '"log an interested party"', '"upload these leads"'],
-            donts: 'Never auto-promote a lead to a tenant requirement or a contacts record — those are manual buttons.',
+          { name: 'Add Leads',
+            purpose: 'Adds interested-party leads to the Agency Pipeline board. Handles a single lead described in chat OR a bulk CSV/XLSX upload, connecting each lead to a listing on Agency Listings and/or a space on Agency Spaces.',
+            triggers: ['"add a lead"', '"new lead for [listing]"', '"this tenant is interested in [address]"', '"upload these leads"'],
+            donts: 'Never auto-promote a lead to a tenant requirement or contacts record — those are separate manual button actions.',
             board: 'Agency Pipeline (9486418297)' },
-          { name: 'Add Tenant', file: 'retail-add-tenant.skill',
-            purpose: 'Creates a new tenant assignment on My Tenants — a tenant the broker actively represents (exclusive or prospect).',
-            triggers: ['"add a tenant"', '"I picked up [tenant] as a client"', '"tenant rep assignment"'],
-            donts: 'Not for tenant space criteria — use add-tenant-requirement.',
+          { name: 'Add Tenant',
+            purpose: 'Creates a new tenant assignment on My Tenants — a tenant the broker actively represents (exclusive or prospect). Captures size, rent, timeline, use, source, and space requirements, and links the tenant\'s contact.',
+            triggers: ['"add a tenant"', '"I picked up [tenant] as a client"', '"I\'m now representing [tenant]"'],
+            donts: 'Not for a tenant\'s space-criteria requirement (use add-tenant-requirement) or a site pursuit (use create-site).',
             board: 'My Tenants (18052489869)' },
-          { name: 'Add Tenant Requirement', file: 'retail-add-tenant-requirement.skill',
-            purpose: 'Creates a new tenant requirement — captures size, rent, timeline, use groups, target markets — and links the requesting contact.',
-            triggers: ['"add a tenant requirement"', '"[tenant] is looking for space"', '"log a requirement"'],
-            donts: 'Not for adding the tenant assignment itself — use add-tenant.',
+          { name: 'Add Tenant Requirement',
+            purpose: 'Creates a new tenant requirement on the Tenant Requirements board — captures size, rent, timeline, use groups, and target markets, and links the requesting contact.',
+            triggers: ['"add a tenant requirement"', '"[tenant] is looking for space"', '"create a tenant req"'],
+            donts: 'Not for adding the tenant assignment itself (use add-tenant) or an Agency Pipeline lead (use add-leads).',
             board: 'Tenant Requirements (18400155388)' },
-          { name: 'Create Site', file: 'retail-create-site.skill',
-            purpose: 'Creates a tenant-rep site pursuit on the Site Tracker. Every site is required to be linked to a represented tenant on My Tenants.',
-            triggers: ['"create a site"', '"[tenant] wants to look at [address]"', '"add a site to the tracker"'],
-            donts: 'Not for available agency listings/spaces.',
+          { name: 'Create Site',
+            purpose: 'Creates a tenant-rep site pursuit on the Tenant Pipeline / Site Tracker board. Every site must be linked to a represented tenant on My Tenants. Captures property, phase, asking rent, size, target use, and the landlord/broker contact.',
+            triggers: ['"create a site"', '"[tenant] wants to look at [address]"', '"propose [address] to [tenant]"'],
+            donts: 'Not for an available agency listing/space, a pipeline lead, or a tenant requirement.',
             board: 'Site Tracker (18408188573)' },
         ]},
-      { title: 'Contracts & lease analysis', blurb: 'Read leases and review exclusive agreements against RIPCO standards.',
+      { title: 'Contracts & lease analysis', blurb: 'Read leases for economics; review exclusive agreements against the RIPCO standard.',
         skills: [
-          { name: 'Analyze Lease', file: 'retail-analyze-lease.skill',
-            purpose: 'Reads an uploaded retail lease and extracts the deal economics. Suggests (without writing) which CRM records to update.',
-            triggers: ['"analyze this lease"', '"break down this lease"', '"summarize the lease terms"'],
-            donts: 'Not for EA/ELA review — use exclusive-agreement.',
+          { name: 'Analyze Lease',
+            purpose: 'Reads an uploaded retail lease and extracts the deal economics — term, base rent, escalations, TI, free rent, options, net effective. Then suggests (without writing) which CRM records to update.',
+            triggers: ['"analyze this lease"', '"break down this lease"', '"what are the economics of this lease"'],
+            donts: 'Read-and-recommend only — never writes records. Not for EA/ELA review or comps lookups.',
             board: 'N/A (read-only analysis)' },
-          { name: 'Exclusive Agreement (Review + Intake)', file: 'retail-exclusive-agreement.skill',
-            purpose: 'Review + intake for EAs / ELAs against RIPCO templates. Classifies deviations RED/YELLOW/GREEN and offers to log the agreement to the CRM.',
+          { name: 'Exclusive Agreement (Review + Intake)',
+            purpose: 'Reviews AND logs Exclusive Agreements / ELAs (sale and lease) against RIPCO templates. Classifies deviations RED / YELLOW / GREEN, renders an inline review report, then offers to log the agreement to the CRM. Also drafts responses to opposing counsel.',
             triggers: ['"review this exclusive agreement"', '"check this EA against our template"', '"log an exclusive agreement"'],
-            donts: 'Not for general lease analysis — use analyze-lease.',
+            donts: 'Retail Leasing division only — ISG / Investment Sales agreements route to the ISG plugin\'s ela-review. Not for general lease analysis.',
             board: 'Exclusive Agreements' },
-        ]},
-      { title: 'Marketing & materials', blurb: 'Submit any marketing or GIS request to the Marketing & GIS Projects board.',
-        skills: [
-          { name: 'Marketing Requests (unified)', file: 'retail-marketing-requests.skill',
-            purpose: 'One skill covering all Retail Leasing marketing intake — Exclusive Flyer, Marketing Package, GIS, signage, e-blasts, pitchbooks, tour books, site info, REC packages, edits, and takedowns.',
-            triggers: ['"I need a flyer for [address]"', '"marketing package"', '"e-blast"', '"tour book"', '"take down the listing"'],
-            donts: 'Not for ISG OMs/BOVs, lease analysis, or comps.',
-            board: 'Marketing & GIS Projects (18389640392)' },
-          { name: 'Tour Survey (quick-cut)', file: 'retail-tour-survey.skill',
-            purpose: 'Fast, no-frills tour list (address + space + rent + photo per stop) as a lightweight HTML — for a tenant tour.',
-            triggers: ['"quick tour survey"', '"quick cut tour book"', '"fast tour list for [client]"'],
-            donts: 'Not for a full marketing tour book — that\'s marketing-requests.',
-            board: 'RIPCORE / Agency Spaces (read-only)' },
-        ]},
-      { title: 'Reporting', blurb: 'Branded landlord status reports pulled from live board data.',
-        skills: [
-          { name: 'Retail Status Report', file: 'retail-retail-status-report.skill',
-            purpose: 'Branded RIPCO Retail Leasing status report (.docx) for landlords — leasing activity + marketing efforts from live boards.',
-            triggers: ['"retail status report"', '"leasing status report for [address]"', '"landlord update for [shopping center]"'],
-            donts: 'Not for ISG status reports.',
-            board: 'RIPCO Retail Leasing boards' },
         ]},
       { title: 'Comps intake', blurb: 'Pull executed lease economics out of OMs and rent rolls into the comps database.',
         skills: [
-          { name: 'OM Extraction', file: 'retail-om-extraction.skill',
-            purpose: 'Extracts lease/tenant data from Offering Memorandums, rent rolls, and broker packages, then writes structured comps to the RIPCO Retail Comps board. Fires even when you only ask to summarize an OM.',
+          { name: 'OM Extraction',
+            purpose: 'Extracts lease/tenant data from Offering Memorandums, rent rolls, and comp documents, then writes structured comps to the RIPCO Retail Comps board. Fires even when you only ask to summarize or analyze an OM, then offers to add the comps to the database.',
             triggers: ['"extract this rent roll"', '"add this OM to the comps board"', '"process this OM"', 'any uploaded OM or rent roll'],
-            donts: 'Not for tour books, flyers, or availabilities (asking rents are not comps). Not for Property Shark transfers — use comparable-sales-intake.',
+            donts: 'Not for tour books, flyers, or marketing deliverables. Not for RIPCORE/Agency Spaces availabilities (asking rents are not comps). Not for Property Shark transfers.',
             board: 'RIPCO Retail Comps (9789156352)' },
+        ]},
+      { title: 'Reporting & tour materials', blurb: 'Self-service deliverables generated straight from board data.',
+        skills: [
+          { name: 'Retail Status Report',
+            purpose: 'Generates a branded RIPCO Retail Leasing status report (.docx) for a landlord/owner on a specific listing — summarizing leasing Activity (prospect engagement, suite-level status) and Marketing Efforts, with live data from the Monday boards.',
+            triggers: ['"retail status report"', '"leasing status report for [address]"', '"landlord update for [shopping center]"'],
+            donts: 'Not for ISG/investment-sales status reports, marketing intake, tour books, or availability snapshots.',
+            board: 'RIPCO Retail Leasing boards' },
+          { name: 'Tour Survey (quick-cut)',
+            purpose: 'Generates a quick-cut tour survey as a lightweight HTML file — a fast, no-frills tour list (address + space + rent + photo per stop) pulled from spaces you list or from RIPCORE / Agency Spaces data.',
+            triggers: ['"quick tour survey"', '"quick cut tour book"', '"fast tour list for [client]"'],
+            donts: 'Not for submitting a full tour book request to Marketing — that\'s the Marketing Intake plugin.',
+            board: 'RIPCORE / Agency Spaces (read-only)' },
         ]},
       { title: 'Search & availability', blurb: 'The read layer — comps, tenant contacts, and RIPCORE availabilities.',
         skills: [
-          { name: 'Retail Comps', file: 'retail-retail-comps.skill',
+          { name: 'Retail Comps',
             purpose: 'Search and export retail / lease comps live from Monday.com. Manhattan queries hit the Manhattan Lease Comps board; every other market hits the all-markets RIPCO Retail Comps board. Read-only.',
-            triggers: ['"pull comps"', '"lease comps in [submarket]"', '"[tenant] comps"', '"rents in [area]"'],
-            donts: 'Read-only — to ADD comps, use om-extraction. Not for sale comps (Comparable Sales).',
-            board: 'Manhattan Lease Comps + RIPCO Retail Comps (live)' },
-          { name: 'Tenant List', file: 'retail-tenant-list.skill',
-            purpose: 'Query, filter, and export the RIPCO Tenant Contacts DB — tenants and their space requirements. Filter by use group, chain type, price point, SF range, etc.',
-            triggers: ['"use the tenant list"', '"pull coffee tenants"', '"national chains under 2,000 SF"'],
-            donts: 'Not for Monday.com writes.',
-            board: 'Tenant Contacts DB' },
-          { name: 'RIPCORE', file: 'retail-ripcore.skill',
-            purpose: 'Query RIPCORE — NYC retail availabilities database — and generate availability snapshots. Includes board IDs, image asset resolution, and scale gotchas.',
-            triggers: ['"RIPCORE"', '"what\'s available in [submarket]"', '"pull a RIPCORE snapshot"'],
-            donts: 'Not for non-NYC markets.',
+            triggers: ['"pull comps"', '"lease comps in [submarket]"', '"[tenant] comps"', '"what are rents in [submarket]"'],
+            donts: 'Read-only — to ADD comps, route to om-extraction. Not for sale comps (Comparable Sales).',
+            board: 'Manhattan Lease Comps + RIPCO Retail Comps (9789156352)' },
+          { name: 'Tenant List',
+            purpose: 'Query, filter, and export the RIPCO Tenant Contacts database — tenants and their space requirements. Filter by use group, chain type, price point, SF range, company name, or contact name.',
+            triggers: ['"use the tenant list"', '"pull coffee tenants"', '"national chains under 2,000 SF"', '"who\'s looking for 5,000+ SF"'],
+            donts: 'Not for Monday.com writes or marketing requests.',
+            board: 'RIPCO Tenant Contacts DB' },
+          { name: 'RIPCORE',
+            purpose: 'Query RIPCORE — RIPCO\'s NYC retail availabilities database — and generate availability snapshots. Covers board IDs, column IDs, query patterns, filtering rules, image asset resolution, and scale gotchas for the large RIPCORE boards.',
+            triggers: ['"RIPCORE"', '"what\'s available in [submarket]"', '"pull a RIPCORE snapshot"', '"avails in [area]"'],
+            donts: 'Not for markets outside NYC.',
             board: 'RIPCORE Availabilities (18394826182)' },
         ]},
     ]
   },
 
-  // =========================================================
-  // MONDAY CRM — cross-cutting board operations
-  // =========================================================
+  // ═══════════════ MARKETING INTAKE (1 skill, 16 flows) ═══════════════
   {
-    id: 'mondaycrm', line: 'cross', letter: 'M',
-    name: 'Monday CRM',
-    bundle: 'monday-crm.plugin.zip',
-    tagline: 'Generic Monday.com board operations — briefings, forecasting, data hygiene, automations, and activity logging. Works on any board, not just RIPCO\'s.',
-    count: 8,
+    id: 'marketing', line: 'cross', letter: 'M',
+    name: 'Marketing Intake',
+    tagline: 'One unified skill that submits every marketing, GIS, and Capital Markets request with exact app parity — 16 flows, both business lines.',
+    count: 1,
+    isFlowPlugin: true,
+    flows: [
+      { name: 'Marketing Package', meta: 'Retail' },
+      { name: 'Exclusive Flyer', meta: 'Retail' },
+      { name: 'Landlord Pitchbook', meta: 'Retail' },
+      { name: 'Tenant Pitchbook', meta: 'Tenant rep' },
+      { name: 'Site Info / Tour Book', meta: 'Tenant rep' },
+      { name: 'REC Package', meta: 'Tenant rep' },
+      { name: 'Tenant Seeking Sites', meta: 'Tenant rep' },
+      { name: 'Property / Sales E-Blast', meta: 'Pattern B' },
+      { name: 'Signage', meta: 'Pattern B' },
+      { name: 'Edit Request', meta: 'Pattern B' },
+      { name: 'Takedown', meta: 'Pattern B' },
+      { name: 'GIS Request', meta: 'Flexible' },
+      { name: 'Urban Streetmap', meta: 'Flexible' },
+      { name: 'Capabilities & Services', meta: 'Flexible' },
+      { name: 'CM Setup & OM', meta: 'Capital Mkts' },
+      { name: 'CM BOV', meta: 'Capital Mkts' },
+    ],
     scenarios: [
-      { title: 'Daily rhythm', blurb: 'Start your day knowing what needs attention, and log what happened.',
+      { title: 'The unified intake skill', blurb: 'Replaces the eight older marketing skills with one app-parity submission engine.',
         skills: [
-          { name: 'Daily Briefing', file: 'mondaycrm-daily-briefing.skill',
-            purpose: 'Prioritized CRM briefing across pipeline, contacts, accounts, and leads. Surfaces what needs attention today from board activity and updates.',
-            triggers: ['"morning briefing"', '"what\'s on my plate today"', '"what needs my attention"', '"pipeline summary"'],
-            donts: 'Not for building new boards — use workspace-builder.',
-            board: 'Any Monday board' },
-          { name: 'Log Activity', file: 'mondaycrm-log-activity.skill',
-            purpose: 'Log calls, meetings, and notes to item timelines as structured records with attendees, outcomes, and follow-ups. Also reads activity history back.',
-            triggers: ['"log my call with [X]"', '"add a note to the deal"', '"what activities happened on [item]"'],
-            donts: 'Not for meeting transcripts — use meeting-to-deal.',
-            board: 'Any Monday board (timeline items)' },
-          { name: 'Meeting to Deal', file: 'mondaycrm-meeting-to-deal.skill',
-            purpose: 'Turns meeting transcripts into deal updates — key points, commitments, and next steps posted to matching deals. Auto-creates contacts for new attendees.',
-            triggers: ['"log my meetings to deals"', '"update CRM from calls"', '"what did I commit to in meetings"'],
-            donts: 'Not for manually dictated notes — use log-activity.',
-            board: 'Any Monday board + notetaker feed' },
-        ]},
-      { title: 'Analysis & forecasting', blurb: 'Turn board data into a forecast dashboard or a health score.',
-        skills: [
-          { name: 'Forecast', file: 'mondaycrm-forecast.skill',
-            purpose: 'Builds a forecast dashboard in Monday — committed, best-case, and pipeline views by close month, rendered as real dashboard widgets.',
-            triggers: ['"build me a forecast"', '"commit vs best-case"', '"how are we tracking to quota"', '"weighted pipeline"'],
-            donts: 'Not for one-off pipeline questions — use daily-briefing.',
-            board: 'Any Monday board (creates dashboard)' },
-          { name: 'Data Cleanup', file: 'mondaycrm-data-cleanup.skill',
-            purpose: 'Scored board health check (missing fields, stalled deals, abandoned columns, automation gaps) as a report — or bulk fixes for phone formats, missing emails, unowned deals, and stale dates.',
-            triggers: ['"clean my CRM"', '"run a board health check"', '"what\'s broken in my CRM"', '"normalize my phone numbers"'],
-            donts: 'Not for creating new boards or columns from scratch.',
-            board: 'Any Monday board' },
-        ]},
-      { title: 'Setup & automation', blurb: 'Build boards from scratch and wire up rules without touching block IDs.',
-        skills: [
-          { name: 'Workspace Builder', file: 'mondaycrm-workspace-builder.skill',
-            purpose: 'Builds a CRM workspace from scratch — describe the business and get boards, columns, groups, and pipeline stages created in Monday.',
-            triggers: ['"set up my CRM"', '"build me a CRM"', '"I need a new sales pipeline"'],
-            donts: 'Not for questions about an existing board — use daily-briefing or data-cleanup.',
-            board: 'Creates new workspaces + boards' },
-          { name: 'Automate CRM', file: 'mondaycrm-automate-crm.skill',
-            purpose: 'Set up, view, and manage Monday automations in plain English — no block IDs required. "When a deal is won, notify me and move it to Closed Won."',
-            triggers: ['"set up an automation"', '"when a deal is won notify me"', '"what automations do I have"'],
-            donts: 'Not for RIPCO-specific write rules — those are baked into the RIPCO plugins.',
-            board: 'Any Monday board (automations)' },
-          { name: 'Run Sequence', file: 'mondaycrm-run-sequence.skill',
-            purpose: 'Manage Monday CRM sequences end-to-end — list, create, enroll contacts, activate/deactivate, duplicate, and track performance analytics.',
-            triggers: ['"what sequences do I have"', '"enroll this contact in a sequence"', '"show me sequence analytics"'],
-            donts: 'Not for Apollo sequences — those use the Apollo plugin.',
-            board: 'Any Monday board (sequences)' },
+          { name: 'Marketing Intake',
+            purpose: 'Submits RIPCO marketing, GIS, and Capital Markets requests to the Marketing & GIS Projects board exactly the way the RIPCO Marketing Intake app does — same item names, column IDs, status label IDs, context-update formatting, deliverable subitems, dual writes (E-Blasts, Signage), CRM chains (Agency Listings, Contacts, Properties, Spaces, My Tenants, ISG), and reciprocal pipeline links. A flow router picks one of 16 flows, then five sequential write phases execute it.',
+            triggers: ['"I need a flyer for [address]"', '"set up marketing for [address]"', '"send an e-blast"', '"I need signage"', '"tenant pitchbook"', '"REC package"', '"GIS maps for [address]"', '"set up an OM"', '"BOV for [address]"', '"take down the listing"', '"send this to marketing"'],
+            donts: 'Zero writes before you confirm. Supersedes the older marketing-requests and isg-marketing skills — their naming and write formats are out of date. Never writes marketing-owned columns (Office, Division, Visibility, GIS Project Status, Client relation).',
+            board: 'Marketing & GIS Projects (18389640392) + Signage Board (18389640842)' },
         ]},
     ]
   },
 
-  // =========================================================
-  // APOLLO — cross-cutting prospecting
-  // =========================================================
+  // ═══════════════ APOLLO (3) ═══════════════
   {
     id: 'apollo', line: 'cross', letter: 'A',
     name: 'Apollo',
-    bundle: 'apollo.plugin.zip',
-    tagline: 'Cross-cutting prospecting layer both ISG and Retail brokers use for outbound.',
+    tagline: 'Cross-cutting prospecting layer both ISG and Retail brokers use for outbound. Requires your own Apollo seat.',
     count: 3,
     scenarios: [
-      { title: 'Prospecting', blurb: 'Describe an ICP in plain English, get a ranked table of decision-makers with contact info.',
+      { title: 'Prospecting', blurb: 'Describe an ICP in plain English, get a ranked table of decision-makers.',
         skills: [
-          { name: 'Prospect', file: 'apollo-prospect.skill',
-            purpose: 'Full ICP-to-leads pipeline. Describe your ideal customer and get a ranked table of enriched decision-maker leads with emails and phones.',
-            triggers: ['"find prospects who..."', '"build a target list of..."'],
+          { name: 'Prospect',
+            purpose: 'Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers.',
+            triggers: ['"find companies that match [criteria]"', '"build a prospect list"', '"find contacts at [type of company]"'],
             donts: 'Not for enriching a single known contact — use enrich-lead.',
             board: 'N/A (external Apollo data)' },
         ]},
-      { title: 'Enrichment', blurb: 'Turn a name / URL / email into a full contact card.',
+      { title: 'Enrichment', blurb: 'Turn a name, URL, or email into a full contact card.',
         skills: [
-          { name: 'Enrich Lead', file: 'apollo-enrich-lead.skill',
-            purpose: 'Instant lead enrichment — drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, and company intel.',
-            triggers: ['"enrich [contact]"', '"look up [person] at [company]"', '"get contact info for..."'],
+          { name: 'Enrich Lead',
+            purpose: 'Instant lead enrichment — drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and suggested next actions.',
+            triggers: ['"enrich [contact]"', '"look up [person] at [company]"', '"get contact info for…"'],
             donts: 'Not for bulk list building — use prospect.',
             board: 'N/A' },
         ]},
       { title: 'Outreach', blurb: 'Bulk-load matched leads into an Apollo sequence.',
         skills: [
-          { name: 'Sequence Load', file: 'apollo-sequence-load.skill',
-            purpose: 'Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, dedup, and enrollment.',
+          { name: 'Sequence Load',
+            purpose: 'Finds leads matching criteria and bulk-adds them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow.',
             triggers: ['"add these to my Apollo sequence"', '"enroll [X] leads in outreach"'],
             donts: 'Not for one-off manual outreach.',
             board: 'N/A' },
@@ -831,7 +847,7 @@ const PLUGINS = [
 const LINES = [
   { id: 'isg',    label: 'Investment Sales (ISG)' },
   { id: 'retail', label: 'Retail Leasing' },
-  { id: 'cross',  label: 'Cross-cutting' },
+  { id: 'cross',  label: 'Shared' },
 ];
 
 const $ = (s) => document.querySelector(s);
@@ -841,7 +857,6 @@ const modal = $('#modal');
 const backdrop = $('#modal-backdrop');
 let activeLine = 'isg';
 
-// Tabs
 lineTabs.innerHTML = LINES.map(l => {
   const total = PLUGINS.filter(p => p.line === l.id).reduce((n, p) => n + p.count, 0);
   return `<div class="line-tab ${l.id === activeLine ? 'active' : ''}" data-line="${l.id}">${l.label}<span class="cnt">${total}</span></div>`;
@@ -862,13 +877,13 @@ function renderCatalog() {
           <h3>${p.name}</h3>
           <p>${p.tagline}</p>
           <div class="plugin-meta">
-            <span>${p.count} skills</span>
-            <span>${p.scenarios.length} scenarios</span>
+            <span>${p.count} skill${p.count === 1 ? '' : 's'}</span>
+            ${p.isFlowPlugin ? `<span>${p.flows.length} flows</span>` : `<span>${p.scenarios.length} scenarios</span>`}
             <span>plugin</span>
           </div>
         </div>
         <div class="plugin-install">
-          <div class="plugin-badge">${p.count} skills · ${p.scenarios.length} scenarios</div>
+          <div class="plugin-badge">${p.isFlowPlugin ? p.flows.length + ' flows' : p.count + ' skills'}</div>
         </div>
       </div>
       <div class="plugin-body">
@@ -880,7 +895,7 @@ function renderCatalog() {
             </div>
             <div class="scenario-grid">
               ${sc.skills.map(sk => `
-                <div class="skill-item" data-plugin="${p.id}" data-file="${sk.file}">
+                <div class="skill-item" data-plugin="${p.id}" data-name="${sk.name.replace(/"/g,'&quot;')}">
                   <div class="s-name">${sk.name}</div>
                   <div class="s-arrow">→</div>
                 </div>
@@ -888,19 +903,30 @@ function renderCatalog() {
             </div>
           </div>
         `).join('')}
+        ${p.isFlowPlugin ? `
+          <div class="scenario">
+            <div class="scenario-head">
+              <h4>The 16 flows</h4>
+              <div class="s-blurb">One skill, sixteen routed request types. The router picks the flow, reads its reference file, then writes.</div>
+            </div>
+            <div class="flow-grid">
+              ${p.flows.map(f => `<div class="flow-chip"><span class="fdot"></span><span class="fname">${f.name}</span><span class="fmeta">${f.meta}</span></div>`).join('')}
+            </div>
+          </div>
+        ` : ''}
       </div>
     </div>
   `).join('');
   catalogBody.querySelectorAll('.skill-item').forEach(el => {
-    el.addEventListener('click', () => openSkillModal(el.dataset.plugin, el.dataset.file));
+    el.addEventListener('click', () => openSkillModal(el.dataset.plugin, el.dataset.name));
   });
 }
 
-function openSkillModal(pluginId, file) {
+function openSkillModal(pluginId, name) {
   const plugin = PLUGINS.find(p => p.id === pluginId);
   let skill = null;
   for (const sc of plugin.scenarios) {
-    const found = sc.skills.find(x => x.file === file);
+    const found = sc.skills.find(x => x.name === name);
     if (found) { skill = found; break; }
   }
   if (!skill) return;
@@ -925,7 +951,7 @@ function openSkillModal(pluginId, file) {
       </div>
       <div class="modal-section">
         <div class="modal-label">Boundaries</div>
-        <div class="donts"><strong>Do not use for:</strong> ${skill.donts}</div>
+        <div class="donts"><strong>Note:</strong> ${skill.donts}</div>
       </div>
       <div class="modal-section">
         <div class="modal-label">Primary board / data source</div>
