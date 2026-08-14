@@ -4,91 +4,100 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>RIPCO AI — Skills, Plugins & How Claude Fits In</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<!-- Graphik is RIPCO's brand typeface; Arial is the approved fallback -->
 <style>
   :root {
-    --navy: #0a1f44; --navy-2: #11295a; --navy-3: #1e3a72;
-    --gold: #c8a951; --gold-2: #b39845; --gold-soft: #e8d8a8;
-    --ink: #0f172a; --ink-muted: #475569; --ink-light: #94a3b8;
-    --line: #e2e8f0; --bg: #faf8f3; --bg-card: #ffffff;
-    --green: #16a34a; --red: #dc2626;
-    --shadow: 0 1px 2px rgba(10,31,68,.04), 0 8px 24px rgba(10,31,68,.06);
-    --shadow-lg: 0 8px 32px rgba(10,31,68,.12);
+    /* RIPCO corporate palette — Retail Leasing / corporate */
+    --midnight: #041E42;      /* primary */
+    --midnight-2: #0A2B57;    /* primary, lighter step */
+    --midnight-3: #143A6B;
+    --slate: #5B6770;         /* secondary */
+    --slate-2: #7C868E;
+    --slate-light: #A8B0B6;
+    --crimson: #E13C46;       /* ACCENT ONLY — never dominant */
+    --crimson-wash: #FDF0F1;
+    --ink: #041E42;
+    --ink-muted: #5B6770;
+    --ink-light: #A8B0B6;
+    --line: #E3E6E8;
+    --bg: #F7F8F9;
+    --bg-card: #FFFFFF;
+    --green: #16803C;
+    --shadow: 0 1px 2px rgba(4,30,66,.04), 0 8px 24px rgba(4,30,66,.07);
+    --shadow-lg: 0 8px 32px rgba(4,30,66,.14);
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Graphik', Arial, Helvetica, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; }
   a { color: inherit; }
   code { font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 90%; background: var(--bg); padding: 2px 6px; border-radius: 4px; }
   .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
 
-  .nav { border-bottom: 1px solid var(--line); background: rgba(250,248,243,.9); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 50; }
+  .nav { border-bottom: 1px solid var(--line); background: rgba(247,248,249,.92); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 50; }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
-  .brand-mark { width: 30px; height: 30px; border-radius: 6px; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: 'Newsreader', serif; font-weight: 600; font-size: 16px; }
+  .brand-mark { width: 30px; height: 30px; border-radius: 6px; background: var(--midnight); color: #FFFFFF; display: grid; place-items: center; font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 16px; }
   .nav-links { display: flex; gap: 24px; font-size: 13.5px; color: var(--ink-muted); }
   .nav-links a { text-decoration: none; }
   .nav-links a:hover { color: var(--ink); }
 
   .hero { padding: 72px 0 48px; }
   .hero-eyebrow { color: var(--ink-muted); font-size: 13px; text-transform: uppercase; letter-spacing: .12em; font-weight: 600; margin-bottom: 20px; }
-  .hero h1 { font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: clamp(38px, 5vw, 62px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 20px; max-width: 940px; }
-  .hero h1 em { font-style: italic; color: var(--navy); background: linear-gradient(180deg, transparent 70%, var(--gold-soft) 70%); padding: 0 4px; }
+  .hero h1 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: clamp(38px, 5vw, 62px); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 20px; max-width: 940px; }
+  .hero h1 em { font-style: italic; color: var(--midnight); background: linear-gradient(180deg, transparent 88%, rgba(225,60,70,.35) 88%); padding: 0 2px; }
   .hero p { font-size: 18px; color: var(--ink-muted); max-width: 720px; margin: 0 0 28px; }
   .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 500; font-size: 14px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: all .15s ease; }
-  .btn-primary { background: var(--navy); color: #fff; }
-  .btn-primary:hover { background: var(--navy-2); }
+  .btn-primary { background: var(--midnight); color: #fff; }
+  .btn-primary:hover { background: var(--midnight-2); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
   .btn-ghost:hover { border-color: var(--ink); }
 
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 48px; }
   .stat { background: #fff; padding: 22px 24px; }
-  .stat-num { font-family: 'Newsreader', serif; font-weight: 600; font-size: 38px; color: var(--navy); line-height: 1; letter-spacing: -.02em; }
+  .stat-num { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 38px; color: var(--midnight); line-height: 1; letter-spacing: -.02em; }
   .stat-label { color: var(--ink-muted); font-size: 13px; margin-top: 6px; }
 
   .section { padding: 56px 0; }
-  .section-eyebrow { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
-  .section-title { font-family: 'Newsreader', serif; font-weight: 600; font-size: 36px; letter-spacing: -.02em; margin: 0 0 12px; }
+  .section-eyebrow { color: var(--crimson); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+  .section-title { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 36px; letter-spacing: -.02em; margin: 0 0 12px; }
   .section-sub { color: var(--ink-muted); font-size: 16.5px; max-width: 640px; margin: 0 0 36px; line-height: 1.6; }
 
-  .claude-explainer { background: linear-gradient(180deg, #fff 0%, #f8f4ea 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .claude-explainer { background: linear-gradient(180deg, #fff 0%, #EFF1F3 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .claude-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
   .claude-copy p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin: 0 0 14px; }
   .claude-copy p strong { color: var(--ink); }
-  .callout { background: #fff; border-left: 3px solid var(--gold); padding: 14px 18px; border-radius: 6px; margin: 18px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); box-shadow: var(--shadow); }
-  .callout strong { color: var(--navy); }
+  .callout { background: #fff; border-left: 3px solid var(--crimson); padding: 14px 18px; border-radius: 6px; margin: 18px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink); box-shadow: var(--shadow); }
+  .callout strong { color: var(--midnight); }
 
   .cc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
   .cc-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
   .cc-card.chat { border-top: 3px solid var(--ink-light); }
-  .cc-card.cowork { border-top: 3px solid var(--gold); background: linear-gradient(180deg, #fffbf0 0%, #fff 60%); }
+  .cc-card.cowork { border-top: 3px solid var(--crimson); background: linear-gradient(180deg, #FBFCFC 0%, #fff 60%); }
   .cc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .cc-head h3 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.01em; }
+  .cc-head h3 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.01em; }
   .cc-badge { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
-  .cc-badge.chat-b { background: #f1f5f9; color: #64748b; }
-  .cc-badge.cowork-b { background: var(--gold); color: var(--navy); }
+  .cc-badge.chat-b { background: #EFF1F3; color: #5B6770; }
+  .cc-badge.cowork-b { background: var(--midnight); color: #FFFFFF; }
   .cc-list { list-style: none; padding: 0; margin: 0; }
   .cc-list li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 14px; color: var(--ink); border-top: 1px solid var(--line); }
   .cc-list li:first-child { border-top: 0; }
   .cc-list li .ic { flex-shrink: 0; width: 18px; height: 18px; color: var(--green); }
   .cc-list li.no .ic { color: var(--ink-light); }
-  .monday-highlight { margin-top: 18px; background: var(--navy); color: #fff; padding: 14px 16px; border-radius: 8px; display: flex; gap: 12px; align-items: center; }
-  .monday-highlight .mh-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--gold); color: var(--navy); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; }
+  .monday-highlight { margin-top: 18px; background: var(--midnight); color: #fff; padding: 14px 16px; border-radius: 8px; display: flex; gap: 12px; align-items: center; }
+  .monday-highlight .mh-icon { width: 32px; height: 32px; border-radius: 6px; background: #FFFFFF; color: var(--midnight); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; }
   .monday-highlight small { display: block; opacity: .8; font-size: 12px; margin-top: 2px; }
 
-  .monday-story { background: var(--navy); color: #fff; padding: 64px 0; }
-  .monday-story .section-eyebrow { color: var(--gold); }
+  .monday-story { background: var(--midnight); color: #fff; padding: 64px 0; }
+  .monday-story .section-eyebrow { color: var(--crimson); }
   .monday-story .section-title { color: #fff; }
   .monday-story .section-sub { color: rgba(255,255,255,.75); }
   .monday-story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
   .ms-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 22px; }
-  .ms-card h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 19px; margin: 0 0 10px; color: var(--gold); }
+  .ms-card h4 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 19px; margin: 0 0 10px; color: #FFFFFF; }
   .ms-card p { color: rgba(255,255,255,.8); font-size: 14px; margin: 0; line-height: 1.6; }
   .ms-boards { margin-top: 40px; padding: 22px; background: rgba(255,255,255,.03); border: 1px dashed rgba(255,255,255,.15); border-radius: 10px; }
-  .ms-boards-title { color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; margin-bottom: 12px; }
+  .ms-boards-title { color: rgba(255,255,255,.65); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; margin-bottom: 12px; }
   .ms-boards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-size: 12.5px; }
   .ms-board { color: rgba(255,255,255,.75); }
   .ms-board .b-name { display: block; color: #fff; font-weight: 600; }
@@ -102,9 +111,9 @@
   .steps li::before {
     counter-increment: st; content: counter(st);
     width: 32px; height: 32px; border-radius: 50%;
-    background: var(--navy); color: var(--gold);
+    background: var(--midnight); color: #FFFFFF;
     display: grid; place-items: center; font-weight: 700; font-size: 14px;
-    font-family: 'Newsreader', serif;
+    font-family: 'Graphik', Arial, Helvetica, sans-serif;
   }
   .steps li::after {
     content: ''; position: absolute; left: 15.5px; top: 34px; bottom: 6px;
@@ -117,14 +126,14 @@
   .ui-path {
     display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
     background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
-    padding: 4px 9px; font-size: 12.5px; font-weight: 600; color: var(--navy);
+    padding: 4px 9px; font-size: 12.5px; font-weight: 600; color: var(--midnight);
     margin-top: 7px;
   }
   .ui-path .sepr { color: var(--ink-light); font-weight: 400; }
   .setup-aside { display: flex; flex-direction: column; gap: 14px; }
   .verify-card { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
   .verify-head {
-    background: var(--navy); color: #fff; padding: 11px 16px;
+    background: var(--midnight); color: #fff; padding: 11px 16px;
     font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
     display: flex; align-items: center; gap: 8px;
   }
@@ -132,70 +141,70 @@
   .verify-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 9px; }
   .vmsg { font-size: 13px; line-height: 1.5; }
   .vmsg.you { align-self: flex-end; background: #fff; border: 1px solid var(--line); border-radius: 10px 10px 3px 10px; padding: 8px 12px; max-width: 90%; }
-  .vmsg.cl { align-self: flex-start; background: #fff; border-left: 3px solid var(--gold); border-radius: 3px 10px 10px 10px; padding: 8px 12px; max-width: 92%; box-shadow: var(--shadow); }
-  .vmsg.cl b { color: var(--navy); }
+  .vmsg.cl { align-self: flex-start; background: #fff; border-left: 3px solid var(--crimson); border-radius: 3px 10px 10px 10px; padding: 8px 12px; max-width: 92%; box-shadow: var(--shadow); }
+  .vmsg.cl b { color: var(--midnight); }
   .trouble { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 15px 17px; }
   .trouble h4 { font-size: 13px; font-weight: 700; color: #92400e; margin: 0 0 9px; text-transform: uppercase; letter-spacing: .08em; }
   .trouble dl { margin: 0; font-size: 13px; }
   .trouble dt { font-weight: 600; color: #78350f; margin-top: 9px; }
   .trouble dt:first-child { margin-top: 0; }
   .trouble dd { margin: 2px 0 0; color: #92400e; line-height: 1.5; }
-  .scope-note { background: var(--navy); color: #fff; border-radius: 10px; padding: 15px 17px; }
-  .scope-note h4 { font-family: 'Newsreader', serif; font-size: 16px; font-weight: 600; color: var(--gold); margin: 0 0 6px; }
+  .scope-note { background: var(--midnight); color: #fff; border-radius: 10px; padding: 15px 17px; }
+  .scope-note h4 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF; margin: 0 0 6px; }
   .scope-note p { font-size: 13px; color: rgba(255,255,255,.82); margin: 0; line-height: 1.6; }
 
   .conn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .conn-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; min-height: 190px; position: relative; }
   .conn-card .conn-status { position: absolute; top: 14px; right: 14px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; }
-  .conn-card .conn-status.live { background: #dcfce7; color: #166534; }
+  .conn-card .conn-status.live { background: #E6F4EA; color: #16803C; }
   .conn-card .conn-status.pending { background: #fef3c7; color: #92400e; }
   .conn-card .conn-status.review { background: #dbeafe; color: #1e40af; }
   .conn-card .conn-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--bg); display: grid; place-items: center; margin-bottom: 14px; }
-  .conn-card h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 20px; margin: 0 0 6px; letter-spacing: -.01em; }
+  .conn-card h4 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 20px; margin: 0 0 6px; letter-spacing: -.01em; }
   .conn-card p { color: var(--ink-muted); font-size: 13.5px; line-height: 1.55; margin: 0; flex: 1; }
   .conn-card .conn-uses { margin-top: 12px; font-size: 12px; color: var(--ink-light); font-weight: 500; }
   .conn-tier { margin-bottom: 36px; }
   .conn-tier:last-child { margin-bottom: 0; }
   .conn-tier-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-  .conn-tier-head h3 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.015em; }
+  .conn-tier-head h3 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.015em; }
   .conn-tier-head .tier-note { font-size: 13.5px; color: var(--ink-muted); flex: 1; }
   .conn-tier-head .tier-chip { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
-  .conn-tier-head .tier-chip.co { background: var(--navy); color: var(--gold); }
-  .conn-tier-head .tier-chip.br { background: var(--gold); color: var(--navy); }
+  .conn-tier-head .tier-chip.co { background: var(--midnight); color: #FFFFFF; }
+  .conn-tier-head .tier-chip.br { background: var(--slate); color: #FFFFFF; }
 
   .line-tabs { display: flex; gap: 8px; margin-bottom: 32px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
   .line-tab { padding: 12px 20px 14px; font-weight: 600; font-size: 15px; color: var(--ink-muted); border-bottom: 2px solid transparent; cursor: pointer; transition: all .15s ease; margin-bottom: -1px; }
   .line-tab:hover { color: var(--ink); }
-  .line-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .line-tab.active { color: var(--midnight); border-bottom-color: var(--crimson); }
   .line-tab .cnt { display: inline-block; margin-left: 6px; font-size: 12px; padding: 2px 7px; border-radius: 999px; background: var(--bg); color: var(--ink-muted); font-weight: 600; }
-  .line-tab.active .cnt { background: var(--navy); color: var(--gold); }
+  .line-tab.active .cnt { background: var(--midnight); color: #FFFFFF; }
 
   .plugin { background: #fff; border: 1px solid var(--line); border-radius: 16px; margin-bottom: 28px; overflow: hidden; }
-  .plugin-head { padding: 26px 28px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #fff 0%, #faf8f3 100%); }
-  .plugin-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: 'Newsreader', serif; font-weight: 700; font-size: 22px; flex-shrink: 0; }
+  .plugin-head { padding: 26px 28px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #fff 0%, #F7F8F9 100%); }
+  .plugin-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--midnight); color: #FFFFFF; display: grid; place-items: center; font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 700; font-size: 22px; flex-shrink: 0; }
   .plugin-info { flex: 1; min-width: 220px; }
-  .plugin-info h3 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 26px; margin: 0 0 4px; letter-spacing: -.015em; }
+  .plugin-info h3 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 26px; margin: 0 0 4px; letter-spacing: -.015em; }
   .plugin-info p { margin: 0; color: var(--ink-muted); font-size: 14px; line-height: 1.5; }
   .plugin-meta { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-light); margin-top: 8px; flex-wrap: wrap; }
   .plugin-meta span { background: var(--bg); padding: 3px 8px; border-radius: 4px; font-weight: 600; color: var(--ink-muted); }
   .plugin-install { display: flex; gap: 8px; align-items: center; }
-  .plugin-badge { background: var(--bg); color: var(--navy); font-size: 12px; font-weight: 600; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--line); white-space: nowrap; }
+  .plugin-badge { background: var(--bg); color: var(--midnight); font-size: 12px; font-weight: 600; padding: 8px 14px; border-radius: 6px; border: 1px solid var(--line); white-space: nowrap; }
   .plugin-body { padding: 22px 28px 28px; }
   .scenario { margin-top: 24px; }
   .scenario:first-child { margin-top: 0; }
   .scenario-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-  .scenario-head h4 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; margin: 0; letter-spacing: -.01em; color: var(--navy); }
+  .scenario-head h4 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 17px; margin: 0; letter-spacing: -.01em; color: var(--midnight); }
   .scenario-head .s-blurb { font-size: 13px; color: var(--ink-muted); flex: 1; margin-left: 8px; }
   .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
   .skill-item { background: var(--bg); border: 1px solid transparent; border-radius: 8px; padding: 12px 14px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all .15s ease; }
-  .skill-item:hover { background: #fff; border-color: var(--navy); box-shadow: var(--shadow); }
+  .skill-item:hover { background: #fff; border-color: var(--midnight); box-shadow: var(--shadow); }
   .skill-item .s-name { font-weight: 600; font-size: 13.5px; flex: 1; letter-spacing: -.01em; }
   .skill-item .s-arrow { color: var(--ink-light); font-size: 14px; }
 
   /* flow grid for marketing intake */
   .flow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
   .flow-chip { background: var(--bg); border: 1px solid var(--line); border-radius: 7px; padding: 9px 12px; font-size: 12.5px; display: flex; align-items: center; gap: 8px; }
-  .flow-chip .fdot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .flow-chip .fdot { width: 6px; height: 6px; border-radius: 50%; background: var(--crimson); flex-shrink: 0; }
   .flow-chip .fname { font-weight: 600; }
   .flow-chip .fmeta { margin-left: auto; font-size: 10.5px; color: var(--ink-light); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
 
@@ -203,17 +212,17 @@
   .modal-backdrop.open { display: flex; }
   .modal { background: #fff; border-radius: 16px; max-width: 720px; width: 100%; box-shadow: var(--shadow-lg); overflow: hidden; }
   .modal-head { padding: 26px 30px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-  .modal-head h2 { font-family: 'Newsreader', serif; font-weight: 600; font-size: 26px; letter-spacing: -.015em; margin: 4px 0 4px; }
-  .modal-head .m-plugin { font-size: 11.5px; color: var(--navy); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+  .modal-head h2 { font-family: 'Graphik', Arial, Helvetica, sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -.015em; margin: 4px 0 4px; }
+  .modal-head .m-plugin { font-size: 11.5px; color: var(--midnight); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
   .close-btn { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; width: 32px; height: 32px; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
   .close-btn:hover { background: var(--line); }
   .modal-body { padding: 22px 30px 30px; }
   .modal-section { margin-bottom: 20px; }
   .modal-section:last-child { margin-bottom: 0; }
-  .modal-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); margin-bottom: 8px; }
+  .modal-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--crimson); margin-bottom: 8px; }
   .modal-section p { margin: 0; color: var(--ink); font-size: 14.5px; line-height: 1.6; }
   .triggers { display: flex; flex-direction: column; gap: 6px; }
-  .trigger { background: var(--bg); padding: 8px 12px; border-radius: 6px; font-size: 13px; color: var(--ink); border-left: 3px solid var(--gold); font-family: ui-monospace, SF Mono, Menlo, monospace; }
+  .trigger { background: var(--bg); padding: 8px 12px; border-radius: 6px; font-size: 13px; color: var(--ink); border-left: 3px solid var(--crimson); font-family: ui-monospace, SF Mono, Menlo, monospace; }
   .donts { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #991b1b; }
   .donts strong { color: #7f1d1d; }
 
@@ -285,67 +294,67 @@
 
       <svg viewBox="0 0 560 440" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; max-height: 440px;" aria-label="Claude architecture at RIPCO">
         <defs>
-          <linearGradient id="grad-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#11295a"/><stop offset="1" stop-color="#0a1f44"/></linearGradient>
-          <linearGradient id="grad-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8d8a8"/><stop offset="1" stop-color="#c8a951"/></linearGradient>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0a1f44"/></marker>
-          <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#c8a951"/></marker>
+          <linearGradient id="grad-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A2B57"/><stop offset="1" stop-color="#041E42"/></linearGradient>
+          <linearGradient id="grad-soft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFF1F3"/></linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#041E42"/></marker>
+          <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#E13C46"/></marker>
         </defs>
         <g>
-          <rect x="20" y="180" width="90" height="60" rx="10" fill="#fff" stroke="#0a1f44" stroke-width="1.5"/>
-          <text x="65" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#0a1f44">YOU</text>
-          <text x="65" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569">Broker</text>
+          <rect x="20" y="180" width="90" height="60" rx="10" fill="#fff" stroke="#041E42" stroke-width="1.5"/>
+          <text x="65" y="205" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="12" font-weight="700" fill="#041E42">YOU</text>
+          <text x="65" y="222" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="#5B6770">Broker</text>
         </g>
         <g>
-          <rect x="200" y="30" width="160" height="60" rx="10" fill="url(#grad-gold)" stroke="#b39845" stroke-width="1"/>
-          <text x="280" y="55" text-anchor="middle" font-family="Newsreader, serif" font-size="14" font-weight="600" fill="#0a1f44">Skills Library</text>
-          <text x="280" y="72" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#0a1f44">27 skills · 4 plugins</text>
-          <path d="M 280,90 L 280,140" stroke="#c8a951" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrow-gold)"/>
+          <rect x="200" y="30" width="160" height="60" rx="10" fill="url(#grad-soft)" stroke="#E13C46" stroke-width="1.5"/>
+          <text x="280" y="55" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="14" font-weight="600" fill="#041E42">Skills Library</text>
+          <text x="280" y="72" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" fill="#041E42">27 skills · 4 plugins</text>
+          <path d="M 280,90 L 280,140" stroke="#E13C46" stroke-width="2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrow-accent)"/>
         </g>
         <g>
-          <rect x="180" y="150" width="200" height="120" rx="14" fill="url(#grad-navy)" stroke="#0a1f44" stroke-width="1"/>
-          <text x="280" y="185" text-anchor="middle" font-family="Newsreader, serif" font-size="22" font-weight="600" fill="#e8d8a8">Claude</text>
-          <text x="280" y="207" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(255,255,255,.85)">Anthropic LLM</text>
-          <line x1="210" y1="222" x2="350" y2="222" stroke="rgba(232,216,168,.3)" stroke-width="1"/>
-          <text x="280" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">SEEM · Search Extract</text>
-          <text x="280" y="255" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">Explain Model</text>
+          <rect x="180" y="150" width="200" height="120" rx="14" fill="url(#grad-navy)" stroke="#041E42" stroke-width="1"/>
+          <text x="280" y="185" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="22" font-weight="600" fill="#FFFFFF">Claude</text>
+          <text x="280" y="207" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="11" fill="rgba(255,255,255,.85)">Anthropic LLM</text>
+          <line x1="210" y1="222" x2="350" y2="222" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+          <text x="280" y="240" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">SEEM · Search Extract</text>
+          <text x="280" y="255" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" fill="rgba(255,255,255,.7)">Explain Model</text>
         </g>
-        <path d="M 110,210 L 175,210" stroke="#0a1f44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-        <text x="142" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569" font-style="italic">prompt</text>
+        <path d="M 110,210 L 175,210" stroke="#041E42" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <text x="142" y="200" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="#5B6770" font-style="italic">prompt</text>
         <g>
-          <rect x="410" y="130" width="130" height="80" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
-          <text x="475" y="152" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="600" fill="#0f172a">Chat</text>
-          <text x="475" y="170" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569">Answers questions</text>
-          <text x="475" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#475569">Research · Analysis</text>
-          <text x="475" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#94a3b8">No file writes</text>
+          <rect x="410" y="130" width="130" height="80" rx="10" fill="#fff" stroke="#A8B0B6" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text x="475" y="152" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="15" font-weight="600" fill="#041E42">Chat</text>
+          <text x="475" y="170" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="#5B6770">Answers questions</text>
+          <text x="475" y="184" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="#5B6770">Research · Analysis</text>
+          <text x="475" y="200" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="9" fill="#A8B0B6">No file writes</text>
         </g>
-        <path d="M 380,180 L 405,165" stroke="#0a1f44" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+        <path d="M 380,180 L 405,165" stroke="#041E42" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
         <g>
-          <rect x="410" y="230" width="130" height="90" rx="10" fill="#c8a951" stroke="#b39845" stroke-width="2"/>
-          <text x="475" y="253" text-anchor="middle" font-family="Newsreader, serif" font-size="15" font-weight="600" fill="#0a1f44">Cowork</text>
-          <text x="475" y="272" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#0a1f44">Does the work</text>
-          <text x="475" y="286" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#0a1f44">Reads · Writes · Uploads</text>
-          <rect x="422" y="295" width="106" height="20" rx="4" fill="#0a1f44"/>
-          <text x="475" y="309" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#c8a951">↑ FILES → MONDAY</text>
+          <rect x="410" y="230" width="130" height="90" rx="10" fill="#0A2B57" stroke="#E13C46" stroke-width="2"/>
+          <text x="475" y="253" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Cowork</text>
+          <text x="475" y="272" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="rgba(255,255,255,.85)">Does the work</text>
+          <text x="475" y="286" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" fill="rgba(255,255,255,.85)">Reads · Writes · Uploads</text>
+          <rect x="422" y="295" width="106" height="20" rx="4" fill="#E13C46"/>
+          <text x="475" y="309" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">↑ FILES → MONDAY</text>
         </g>
-        <path d="M 380,240 L 405,265" stroke="#c8a951" stroke-width="2" fill="none" marker-end="url(#arrow-gold)"/>
+        <path d="M 380,240 L 405,265" stroke="#E13C46" stroke-width="2" fill="none" marker-end="url(#arrow-accent)"/>
         <g>
-          <text x="280" y="360" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#475569" letter-spacing="1">MCP CONNECTORS</text>
-          <rect x="80" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
-          <text x="125" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#0a1f44">Monday.com</text>
-          <rect x="180" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
-          <text x="225" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">M365</text>
-          <text x="225" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">under review</text>
-          <rect x="280" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
-          <text x="325" y="401" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#475569">HubSpot</text>
-          <text x="325" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="8.5" fill="#94a3b8">pending</text>
-          <rect x="380" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
-          <text x="415" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">ZoomInfo</text>
-          <rect x="460" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#0a1f44" stroke-width="1.2"/>
-          <text x="495" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#0a1f44">Apollo</text>
+          <text x="280" y="360" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#5B6770" letter-spacing="1">MCP CONNECTORS</text>
+          <rect x="80" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#041E42" stroke-width="1.2"/>
+          <text x="125" y="404" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#041E42">Monday.com</text>
+          <rect x="180" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#A8B0B6" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="225" y="401" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="11" font-weight="600" fill="#5B6770">M365</text>
+          <text x="225" y="414" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="8.5" fill="#A8B0B6">under review</text>
+          <rect x="280" y="380" width="90" height="40" rx="6" fill="#fff" stroke="#A8B0B6" stroke-width="1.2" stroke-dasharray="3 3"/>
+          <text x="325" y="401" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="11" font-weight="600" fill="#5B6770">HubSpot</text>
+          <text x="325" y="414" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="8.5" fill="#A8B0B6">pending</text>
+          <rect x="380" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#041E42" stroke-width="1.2"/>
+          <text x="415" y="404" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#041E42">ZoomInfo</text>
+          <rect x="460" y="380" width="70" height="40" rx="6" fill="#fff" stroke="#041E42" stroke-width="1.2"/>
+          <text x="495" y="404" text-anchor="middle" font-family="Graphik, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#041E42">Apollo</text>
         </g>
-        <path d="M 475,320 Q 475,350 425,378" stroke="#c8a951" stroke-width="2" fill="none" marker-end="url(#arrow-gold)"/>
-        <path d="M 465,320 Q 400,355 225,378" stroke="#c8a951" stroke-width="1.5" fill="none" opacity=".7"/>
-        <path d="M 455,320 Q 300,355 125,378" stroke="#c8a951" stroke-width="1.5" fill="none" opacity=".7"/>
+        <path d="M 475,320 Q 475,350 425,378" stroke="#E13C46" stroke-width="2" fill="none" marker-end="url(#arrow-accent)"/>
+        <path d="M 465,320 Q 400,355 225,378" stroke="#E13C46" stroke-width="1.5" fill="none" opacity=".7"/>
+        <path d="M 455,320 Q 300,355 125,378" stroke="#E13C46" stroke-width="1.5" fill="none" opacity=".7"/>
       </svg>
     </div>
 
@@ -526,21 +535,21 @@
       <div class="conn-grid">
         <div class="conn-card">
           <span class="conn-status live">Live</span>
-          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
           <h4>Monday.com</h4>
-          <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps. <a href="#connect-monday" style="color:var(--navy); font-weight:600; text-decoration:underline;">You connect this one yourself →</a></p>
+          <p>The CRM backbone. Every RIPCO plugin reads and writes Monday — listings, leads, tenants, deals, marketing, signage, comps. <a href="#connect-monday" style="color:var(--midnight); font-weight:600; text-decoration:underline;">You connect this one yourself →</a></p>
           <div class="conn-uses">Used by all 4 plugins · required setup</div>
         </div>
         <div class="conn-card">
           <span class="conn-status review">Under Review</span>
-          <div class="conn-icon" style="opacity:.7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+          <div class="conn-icon" style="opacity:.7"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
           <h4>Microsoft 365</h4>
           <p>Outlook email + calendar, SharePoint file search, and meeting availability. Under review by RIPCO IT — not yet approved for general use.</p>
           <div class="conn-uses">Would enable: call prep, weekly briefings</div>
         </div>
         <div class="conn-card">
           <span class="conn-status pending">Pending</span>
-          <div class="conn-icon" style="opacity:.6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="conn-icon" style="opacity:.6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
           <h4>HubSpot</h4>
           <p>Marketing automation and contact management. Not yet active for RIPCO — awaiting workspace-level integration and skill build-out.</p>
           <div class="conn-uses">Planned: email nurture, contact sync</div>
@@ -557,21 +566,21 @@
       <div class="conn-grid">
         <div class="conn-card">
           <span class="conn-status live">Available</span>
-          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
           <h4>Apollo</h4>
           <p>Outbound prospecting and sequence engine. Build target lists from an ICP description, enrich contacts, and enroll leads into email sequences.</p>
           <div class="conn-uses">Requires your own Apollo seat</div>
         </div>
         <div class="conn-card">
           <span class="conn-status live">Available</span>
-          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/><path d="M8 11h6"/></svg></div>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/><path d="M8 11h6"/></svg></div>
           <h4>ZoomInfo</h4>
           <p>Contact and company intel — verified emails, phones, org charts, funding, buying signals. Fuels owner research and tenant prospecting.</p>
           <div class="conn-uses">Requires your own ZoomInfo seat</div>
         </div>
         <div class="conn-card">
           <span class="conn-status live">Available</span>
-          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1f44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+          <div class="conn-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#041E42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
           <h4>Meeting notetakers</h4>
           <p>Granola or Fireflies transcripts feed Claude directly. Pull commitments out of a call and post them to the right deal without re-typing notes.</p>
           <div class="conn-uses">Requires your own notetaker account</div>
